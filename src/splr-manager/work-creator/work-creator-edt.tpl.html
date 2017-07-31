@@ -1,0 +1,110 @@
+<div class="work-creator-edt">
+  <!-- <h2 class="header">Добавление работы</h2> -->
+  <form name="uform">
+	<!-- Single Image with validations -->
+	<!-- <div class="app-button" -->
+	<!-- 	 ngf-select -->
+	<!-- 	 ng-model="file" -->
+	<!-- 	 name="file" -->
+	<!-- 	 ngf-max-size="20MB" -->
+	<!-- 	 ngf-min-height="10"> -->
+	<!--   Select -->
+	<!-- </div> -->
+	<!-- comma separated wildcard to filter file names and types allowed -->
+	<div>
+  	  <button class="btn-video-link"
+			  ng-click="addVideoLink()">
+		добавить ссылку на видео
+  	  </button>
+	</div>
+	<div class="txt-or">
+	  или
+	</div>
+	<div class="drop-box"
+		 ngf-select
+		 ngf-drop
+		 ngf-pattern="'image/jpeg,image/png'"
+		 ngf-accept="'image/jpeg,image/png'"
+		 ng-model="files"
+		 ngf-multiple="true"
+		 ngf-min-height="200"
+		 ngf-min-width="200"
+		 ngf-max-height="4000"
+		 ngf-max-width="4000"
+		 ngf-max-size="5MB"
+		 ngf-max-files="10">
+  	  добавить фотографии...
+  	</div>
+
+	<div class="err-selection" ng-if="!uform.$valid">
+	  <div>
+		некоторые файлы не удалось добавить:
+		<ul>
+		  <li ng-if="uform.$error.minHeight">
+			минимальная высота: 200px
+		  </li>
+		  <li ng-if="uform.$error.minWidth">
+			минимальная ширина: 200px
+		  </li>
+		  <li ng-if="uform.$error.maxHeight">
+			максимальная высота: 4000px
+		  </li>
+		  <li ng-if="uform.$error.maxWidth">
+			максимальная ширина: 4000px
+		  </li>
+		  <li ng-if="uform.$error.pattern">
+			разрешённые типы файлов: png, jpg (jpeg)
+		  </li>
+		</ul>
+		<span ng-if="uform.$error.maxSize">
+		  максимальный размер файла: 5МБ
+		</span>
+	  </div>
+	  <div ng-if="uform.$error.maxFiles">
+		можно выбрать до 10 файлов за один раз
+	  </div>
+	</div>
+	<div ng-if="files">
+	  <div class="thumbnail-wrap"
+		   ng-repeat="fl in files">
+		<div class="thumbnail-progress"
+			 ng-if="progress && $index === 0">
+		  загрузка {{progress}}%
+		</div>
+		<div>
+		  <img class="thumbnail"
+			   ngf-thumbnail="fl"/>
+		</div>
+		<div class="thumbnail-name">{{ fl.name }}</div>
+		<div ng-if="!progress">
+		  <button class="button-del"				  
+				  ng-click="removePreFile(files, $index)">
+			<i class="fa fa-trash"></i>
+		  </button>
+		</div>		
+	  </div>
+	</div>	
+
+	<button class="app-button"
+			type="submit"
+			ng-if="files && files.length && !progress"
+			ng-click="submit(uform, files)">
+	  Добавить фотографии
+	</button>
+  </form>
+  
+  <!-- ngf-resize="{width: 100, height: 100}" -->
+  
+  <!-- <div> -->
+  <!-- 	<div file-uploader -->
+  <!-- 		 data-btn-text="Загрузить фото..." -->
+  <!-- 		 data-btn-class="app-button" -->
+  <!-- 		 data-on-file-change="addPhoto"> -->
+  <!-- 	</div> -->
+  
+  <!-- открытие нового окна с загрузкой фото -->
+  <!-- либо камерой, либо выбором -->
+  
+  <!-- </div> -->
+
+</div>

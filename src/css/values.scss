@@ -1,0 +1,44 @@
+$toolbar-height:  48px;
+//64px;
+$app-color: rgb(233,30,99);
+//#aaa;
+//#5607a6;
+$link-color: #e91e63;
+//#1a0dab;
+//#2B587A;
+//rgb(68,138,255);
+$link-color-hover: darken($link-color, 10%);
+
+// 32 px - between elements
+// https://developers.google.com/speed/docs/insights/SizeTapTargetsAppropriately
+// 
+// optimal - 48dp (size + padding + margin)
+// min margin: 8dp
+// https://www.google.com/design/spec/layout/metrics-keylines.html#metrics-keylines-touch-target-size
+$elem-margin: 12px;
+$elem-padding: 4px;
+
+// max width of one-column content (for wide screens)
+$wrap-max-width: 800px;
+
+// social
+$color-nstg: #125688;
+$color-vk:   #567ca4;
+
+
+// to use it
+// @extend .clearfix;
+
+.clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin media-sm {
+	@media (max-width: 400px) {
+		@content;
+	}
+}

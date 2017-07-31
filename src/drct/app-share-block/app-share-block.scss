@@ -1,0 +1,57 @@
+.share-block {
+
+	.share-pretext {
+		color: #555;
+		font-size: 0.85rem;
+		font-weight: bold;
+
+		@include media-sm {
+			display: block;
+		}
+	}
+	
+	a {
+        display: inline-block;
+        margin: 4px 0 4px 12px;
+        text-align: center;
+		padding: 8px 6px;
+
+		i {
+			font-size: 2rem;
+			width: 38px;
+			height: 28px;
+		}
+    }
+
+	
+	.share-odnoklassniki {
+		color: #fff;
+		background: orange;
+	}
+
+	.share-vk {
+		color: #fff;
+		background: #3a6d99;
+	}
+
+	.share-mailru {
+		color: #ffa930;
+		background: #168de2;
+	}
+
+	.share-twitter {
+		color: #fff;
+		background: #00adeb;
+	}
+
+	.share-facebook {
+		color: #fff;
+		background: #466db2;
+	}
+
+	.share-google-plus {
+		color: #fff;
+		background: #D64937;
+				   
+	}
+}

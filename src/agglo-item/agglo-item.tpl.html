@@ -1,0 +1,21 @@
+<div class="full-height"
+	 data-ng-if="cur_agglo"
+	 data-ui-view="aggloItemContent">
+</div>
+
+<div ng-if="is_prg">
+  <div ng-if="!cur_agglo && !err_cur_agglo">
+	<div class="pdng text-center">
+	  загрузка локации...
+	</div>
+  </div>
+</div>
+<div ng-if="err_cur_agglo">
+  <div class="err-msg" ng-bind="err_cur_agglo.msg">
+  </div>
+  <div class="err-alt">
+	<a ui-sref="byt.welcome">
+	  Перейти на главную страницу
+	</a>
+  </div>
+</div>

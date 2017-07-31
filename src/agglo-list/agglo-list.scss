@@ -1,0 +1,26 @@
+.agglo-list {
+
+	.agglo-list__item {
+		
+	}
+
+	.agglo-list__link {
+		display: inline-block;
+		padding: 8px 4px;
+		margin: 4px;
+	}
+
+	.agglo-list__link-bold {
+		font-weight: bold;
+	}
+
+	.agglo-list__search-box {
+		margin: 8px;
+		
+		input {
+			display: block;
+			width: 100%;
+			padding: 4px;
+		}
+	}
+}

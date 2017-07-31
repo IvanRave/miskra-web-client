@@ -1,0 +1,25 @@
+<h2 class="pdng qstn-ttl">
+  {{item.ttl}}
+</h2>
+<ul class="pdng qstn-list">
+  <li class="qstn-list__item-wrap"
+	  data-ng-repeat="answ in item.answer_list">
+	<!-- to define link: add ?&qstn=answ.id to current url -->
+	<!-- data-ng-href="{{calcQuizLink(item.id, answ.id)}}" -->
+	<span class="qstn-list__item-link"
+		  data-ng-click="setAnswer(item, answ)"
+		  analytics-on
+		  analytics-category="quiz"
+		  analytics-event="{{answ.id}}">
+	  {{answ.ttl}}
+	  <span class="qstn-list__item-checked"
+			ng-if="item.user_answer === answ">
+		<i class="fa fa-check-circle"></i>
+	  </span>
+	</span>
+  </li>
+</ul>
+
+<!-- <a href="/test/123/question/34534554?supwe=123"> -->
+<!--   asdfas -->
+<!-- </a> -->

@@ -1,0 +1,101 @@
+.frm {
+	$mrgn: 18px;
+	
+	.frm__rad {
+		margin: $mrgn 0;
+
+		label {
+			margin: 0 8px;
+		}
+	}
+
+	/* .frm__lbl { */
+	/* 	font-weight: bold; */
+	/* 	font-size: 0.8rem; */
+	/* 	color: #555; */
+	/* } */
+
+	.frm__inp {
+		margin: $mrgn 0;
+		
+		label {
+			font-weight: bold;
+			font-size: 0.8rem;
+			color: #555;
+		}
+
+		input {
+			font-size: 1rem;
+			padding: 7px;
+			width: 100%;
+			display: inline-block;
+		}
+	}
+
+	/* .frm__flow { */
+	/* 	@extend .clearfix; */
+	/* 	margin: 4px 0; */
+		
+	/* 	.frm__inp { */
+	/* 		margin: 0 120px 0 0; */
+	/* 	} */
+		
+	/* 	.frm__but { */
+	/* 		width: 120px; */
+	/* 		float: right; */
+	/* 		overflow: hidden; */
+	/* 		margin: 0; */
+
+	/* 		input { */
+	/* 			margin: 0; */
+	/* 		} */
+			
+	/* 		button { */
+	/* 			margin: 0; */
+	/* 			width: 120px; */
+	/* 			text-align: center; */
+	/* 			border-radius: 0; */
+	/* 			padding-left: 4px; */
+	/* 			padding-right: 4px; */
+	/* 		} */
+	/* 	} */
+	/* } */
+
+	.frm__but {
+		margin: $mrgn 0;
+	}
+
+	.frm__che {
+		margin: $mrgn 0;
+
+		.frm__che-header {
+			font-weight: bold;
+			font-size: 0.8rem;
+			color: #555;
+		}
+		
+ 		label {
+    		display: inline-block;
+			margin: 6px 0;
+			padding: 4px 0;
+		}
+	}
+
+	.frm__sel {
+		margin: $mrgn 0;
+
+		label {
+			font-weight: bold;
+			font-size: 0.8rem;
+			color: #555;
+		}
+
+
+		select {
+			display: inline-block;
+			width: 100%;
+			padding: 6px;
+			margin-right: 24px;
+		}
+	}
+}

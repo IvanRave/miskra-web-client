@@ -1,0 +1,14 @@
+<div class="similar-links">
+  <div class="similar-links__header">
+	Возможно вас заинтересует
+  </div>
+  <div>
+	<div class="similar-links__item"
+		 ng-repeat="rbr in similarRubrics">
+	  <a ui-sref="byt.aggloItem.specItem.rubricItem.tblView({agglo_local_name: curAgglo.local_name, spec_name: rbr.item.serv_group_name, rubric_name: rbr.item.name})">
+		{{rbr.item.name}}
+	  </a>
+	</div>
+  </div>
+</div>
+

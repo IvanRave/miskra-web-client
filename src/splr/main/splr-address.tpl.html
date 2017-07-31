@@ -1,0 +1,71 @@
+<ul ng-if="vfirm.city_name">
+  <!-- vfirm.address || vfirm.out_geo -->
+  <li class="ctct">
+	<div class="clearfix">
+	  <div class="ctct__icon-wrap">
+		<span class="fa fa-home">
+		</span>
+	  </div>
+	  <div class="ctct__text-wrap">		
+		<div itemprop="address"
+			 itemscope
+			 itemtype="http://schema.org/PostalAddress">
+		  <span itemprop="addressLocality"
+				ng-bind="vfirm.city_name"></span>
+		  <span ng-if="vfirm.address">
+            <span>, </span>
+            <a ng-href="http://maps.apple.com/?q={{vfirm.city_name | enclink}}{{', ' | enclink}}{{vfirm.address | enclink}}"
+               target="_blank"
+               rel="nofollow"
+               analytics-on
+		       analytics-category="contact"
+		       analytics-event="contact-geo">
+			  <span itemprop="streetAddress"
+				    ng-bind="vfirm.address"></span>
+              <sup><span class="fa fa-external-link"></span></sup>
+            </a>
+		  </span>
+		</div>
+		<div class="ctct__text-sub">
+		  адрес мастера / салона
+		</div>
+	  </div>
+	</div>
+  </li>
+  <li ng-if="vfirm.address_comment"
+      class="ctct"
+      style="padding-top: 16px">
+    <div class="clearfix">
+	  <div class="ctct__icon-wrap">
+		<span class="fa fa-street-view">
+		</span>
+	  </div>
+	  <div class="ctct__text-wrap">
+		<div>
+		  <span ng-bind="vfirm.address_comment"></span>
+		</div>
+		<div class="ctct__text-sub">
+          как добраться / найти
+		</div>
+	  </div>
+	</div>
+  </li>
+  <li ng-if="vfirm.out_geo"
+	  class="ctct"
+      style="padding-top: 16px">
+	<div class="clearfix">
+	  <div class="ctct__icon-wrap">
+		<span class="fa fa-sign-out">
+		</span>
+	  </div>
+	  <div class="ctct__text-wrap">
+		<div>
+		  <span ng-bind="vfirm.out_geo"></span>
+		</div>
+		<div class="ctct__text-sub">
+		  районы, работа на выезде
+		</div>
+	  </div>
+	</div>
+  </li>
+</ul>

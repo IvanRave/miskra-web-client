@@ -1,0 +1,33 @@
+{
+  "name": "byt-client",
+  "version": "3.7.2",
+  "description": "Client scripts, styles and templates, can be used for a web, mobile and other interfaces",
+  "main": "dist/byt-client.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:byt/client.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "hint": "jshint src/.",
+    "lint": "eslint src/**/*.js"
+  },
+  "author": "IvanRave",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "del": "^2.2.0",
+    "eslint": "3.x",
+    "eslint-config-airbnb-base": "9.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jasmine": "^1.8.1",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.9",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
+  }
+}

@@ -1,0 +1,135 @@
+<div class="serv-item-edt">
+  <div ng-if="msrv">
+	<div class="clearfix wrap-header">
+	  <div class="wrap-del"
+		   ng-if="is_owner || sessData.is_moder">
+		<button class="button-del"
+				ng-click="deleteServ(msrv)"
+				title="удалить услугу">
+		  <i class="fa fa-trash"></i>
+		</button>
+	  </div>
+	  <h1 class="wrap-title">
+		{{ msrv.serv_rubric_name }}
+	  </h1>
+	</div>
+	<form class="serv-form">
+	  <div class="form-item">
+		<div class="form-item-header">
+		  Цена услуги, руб.
+		  <!-- <select class="currency-selection"> -->
+		  <!-- 	<option>руб</option> -->
+		  <!-- 	<option>тенге</option> -->
+		  <!-- 	<option>гривна</option> -->
+		  <!-- </select> -->
+		  <!-- msrv.currency_id -->
+		</div>
+		<label class="lbl">от
+		  <input class="inp"
+				 type="number"
+				 ng-model="msrv.price_from" />
+		</label>
+		<label class="lbl">до
+		  <input class="inp"
+				 type="number"
+				 ng-model="msrv.price_to" />
+		</label>
+	  </div>
+	  <div class="form-item">
+		<div class="form-item-header">
+		  Время выполнения, минут
+		</div>
+		<label class="lbl">
+		  от <input class="inp"
+					type="number"
+					ng-model="msrv.time_from" />
+		</label>
+		<label class="lbl">
+		  до <input class="inp"
+					type="number"
+					ng-model="msrv.time_to" />
+		</label>
+	  </div>
+	  <div class="form-item">
+		<label>
+		  <input type="checkbox" ng-model="msrv.is_out"/> Возможен выезд на дом
+		</label>
+		<!-- выезд на дом можно тоже в глобально профиле -->
+		<!-- отключать выезд на дом для всех услуг одной кнопкойч -->
+		<!-- регионы для выезда отмечаются в едином профиле -->
+	  </div>
+	  <div class="form-item">
+		<button class="app-button"
+				ng-click="updateMsrv(msrv)">
+		  Сохранить
+		</button>
+		<span ng-if="update_progress">
+		  сохранение...
+		</span>
+		<span ng-if="is_saved">
+		  сохранено
+		</span>
+	  </div>
+	  <div class="err-msg" ng-if="err_update">
+		{{err_update}}
+	  </div>
+	</form>
+	<div work-list-edt
+		 data-master-profile-id="supplier.id"
+		 data-serv-rubric-id="msrv.serv_rubric_id"
+		 data-serv-rubric-name="msrv.serv_rubric_name"
+		 data-vpos="vpos"
+		 data-can-delete="is_owner || sessData.is_moder"
+		 data-can-insert="is_owner || sessData.is_moder">
+	</div>
+  </div>
+  <div class="err-msg" ng-if="err_msrv">
+	{{err_msrv.msg}}
+  </div>
+  <div ng-if="!err_msrv && !msrv">
+	...
+  </div>
+</div>
+<!-- Добавить рубрику к фото 
+	 По умолчанию добавляется текущая рубрика.
+	 Этого достаточно для многих случаев.
+	 Если необходимо указать доп. рубрики для фото, необходимо
+	 - подгрузить все текущие рубрики.
+	 - кнопку Добавить рубрику
+	 - выбор на отдельной странице (или поверх)
+	 - также реализовать Удаление рубрики
+	 - либо вынести редактирование фото на отдельную страницу (так как большой объём дизайна)
+  -->
+
+<!-- Также для работы: цена за работу, время - всё это выносится на отдельную страницу -->
+
+<!-- Все картинки по отдельности с возможностью удаления, перестановки приоритета -->
+<!-- Отображается список всех услуг -->
+
+<!-- Укажите услуги -->
+
+<!-- <div> -->
+<!-- Список специализация + услуга -->
+<!-- </div> -->
+
+<!-- Мастер отображается в каталогах выбранных услуг. Для каждой услуги необходимо загрузить хотя бы одну фотографию. -->
+
+
+<!-- Услуга: Наращивание волос: -->
+
+<!-- Загрузите фото -->
+
+<!-- или -->
+
+<!-- укажите ссылку на видео -->
+
+<!-- Добавьте описание к фото -->
+<!-- (а также другие услуги, которые могут соответствовать работе) -->
+
+
+<!-- Удалить фото (или видео) -->
+<!-- Услуга не удаляется. а остаётся пустой. -->
+<!-- Если услуга удаляется, то и фото удаляется. -->
+
+<!-- К услуге можно также привязывать цены и прочее. -->
+<!-- Если обязать привязывать фото, то в случае удаления фото, услуга тоже удалится. А пользователь может хотеть всего лишь заменить фото в услуге. -->

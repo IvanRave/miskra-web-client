@@ -1,0 +1,31 @@
+.splr-serv {
+	padding: 12px;
+	@extend .clearfix;
+
+	.splr-serv__name {
+	}
+
+	.splr-serv__city-spec-href {	 
+	}
+
+	.splr-serv__edit {
+		float: right;
+		
+		a {
+			i {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+    .splr-serv__price-wrap {
+        padding: 4px 0;
+    }
+
+    .splr-serv__price {
+        background: crimson;
+        padding: 2px 4px;
+        color: #fff;
+        font-weight: bold;
+    }
+}

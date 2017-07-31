@@ -1,0 +1,33 @@
+<div class="splr-serv"
+	 itemscope
+	 itemtype="http://schema.org/Service">
+  <div ng-if="isEditable"
+	   class="splr-serv__edit">
+	<a title="Редактировать услугу и фото"
+	   ui-sref="byt.splrManager.servItem({supplier_id: msrv.master_profile_id, id: msrv.id})">
+	  <i class="fa fa-edit"></i>
+	</a>
+  </div>
+  <h2 class="splr-serv__name"
+	  ng-bind="msrv.serv_rubric_name"
+	  itemprop="name">
+  </h2>
+  <!-- add time later -->
+  <div class="splr-serv__price-wrap"
+       ng-if="msrv.price_from || msrv.price_to">
+	<span ng-if="msrv.price_from">
+	  от <span class="splr-serv__price">{{msrv.price_from}}</span>
+	</span>
+	<span ng-if="msrv.price_to">
+	  до <span class="splr-serv__price">{{msrv.price_to}}</span>
+	</span>
+	руб.
+  </div>
+  <div>
+	<a class="splr-serv__city-spec-href"
+  	   ng-href="{{citySpecHref}}">
+  	  показать всех мастеров
+	</a>
+  </div>
+
+</div>

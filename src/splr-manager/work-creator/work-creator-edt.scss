@@ -1,0 +1,76 @@
+.work-creator-edt {
+	border-top: 1px dashed #ccc;
+	padding-top: 4px;
+	
+	.header{
+		margin-bottom: 8px;
+	}
+
+	.drop-box {
+		color: $link-color;
+		max-width: 280px;
+		width: 100%;
+		margin: 0 auto;
+		border: 5px dashed rgb(221, 221, 221);
+		padding: 24px 10px;
+		text-align: center;
+		background: rgb(248, 248, 248);
+		cursor: pointer;
+
+		&:hover {
+			color: darken($link-color, 10%);
+			border-color: #ccc;
+		}
+	}
+
+	.btn-video-link {
+		border: 1px solid rgb(221, 221, 221);
+		padding: 4px;
+		background: #f8f8f8;
+		color: $link-color;
+		cursor: pointer;
+		max-width: 280px;
+		width: 100%;
+
+		&:hover {
+			color: darken($link-color, 10%);
+			border-color: #ccc;
+		}
+	}
+
+	.txt-or {
+		color: #555;
+		margin: 4px 0 6px;
+	}
+
+	.err-selection {
+		border: 1px dashed red;
+		margin: 4px;
+		padding: 4px;
+		font-size: 0.85rem;
+		color: red;
+	}
+
+	.thumbnail-wrap {
+		max-width: 150px;
+		display: inline-block;
+		margin: 8px;
+
+		.thumbnail-name {
+			font-size: 0.8rem;
+			word-wrap: break-word;
+		}
+		
+		.thumbnail {
+			width: 100%;
+		}
+
+		.thumbnail-progress {
+			width: 100%;
+			padding: 4px;
+			color: #eee;
+			background: #555;
+			font-size: 0.85rem;
+		}
+	}
+}

@@ -1,0 +1,75 @@
+<!-- <h1 class="pdng qres-rubric text-center"> -->
+<!--   Результат теста "{{quizItem.ttl}}" -->
+<!-- </h1> -->
+<div ng-if="qresItem">
+  <div class="mrgn quiz__qres-item">
+	<img ng-src="{{image_share}}"
+		 alt="{{qresItem.best}} - {{qresItem.worst}}"/>
+	<!-- <div class="pdng" -->
+	<!-- 	 ng-bind="qresItem.best"> -->
+	<!-- </div>   -->
+	<!-- <div class="pdng" -->
+	<!-- 	 ng-bind="qresItem.worst"> -->
+	<!-- </div> -->
+  </div>
+  <!-- saveToWall: only for vk, fb, ok -->
+  <!-- show an image from our server, but a wall image from vk group -->
+  <div class="text-center"
+	   ng-if="isWallPostQres">
+	<button class="app-button"
+			ng-click="wallPostQres(qresItem)"
+			analytics-on
+			analytics-category="share"
+			analytics-event="share-qres">
+	  Сохранить на стену
+	</button>
+  </div>
+  <div class="text-center"
+	   ng-if="!isWallPostQres">
+	<!-- show usual button for non-vk apps, like a website -->
+	<div app-share-block
+		 data-title="Тест: {{quizItem.ttl}}"
+		 data-permalink="{{url_share}}"
+		 data-page-image="{{image_share}}">
+	</div>
+  </div>
+</div>
+<!-- <div ng-if="!qresErr && !item"> -->
+<!--   загрузка... -->
+<!-- </div> -->
+<!-- <div class="err-msg" ng-if="qresErr"> -->
+<!--   {{qresErr.msg}} -->
+<!-- </div> -->
+<!-- <div class="mrgn text-center"> -->
+<!--   <a ng-href="{{href_to_quiz}}"> -->
+<!-- 	Вернуться к тесту -->
+<!--   </a> -->
+<!-- </div> -->
+
+<!-- <ul> -->
+<!--   <li class="qres-item" -->
+<!-- 	  ng-repeat="prosItem in item.pros"> -->
+<!-- 	<div> -->
+<!-- 	  {{prosItem}} -->
+<!-- 	</div> -->
+<!-- <div> -->
+<!--   <span class="qres-dscr" -->
+<!-- 		ng-bind="calcProductDscr(prosItem)"> -->
+<!--   </span> -->
+<!-- </div> -->
+<!--   </li> -->
+<!-- </ul> -->
+<!-- <div class="pdng qres-rubric">Не подходит</div> -->
+<!-- <ul> -->
+<!--   <li class="qres-item"  -->
+<!-- 	  ng-repeat="consItem in item.cons"> -->
+<!-- 	<div> -->
+<!-- 	  {{consItem}} -->
+<!-- 	</div> -->
+<!-- 	<div> -->
+<!-- 	  <span class="qres-dscr" -->
+<!-- 			ng-bind="calcProductDscr(consItem)"> -->
+<!-- 	  </span> -->
+<!-- 	</div> -->
+<!--   </li> -->
+<!-- </ul> -->

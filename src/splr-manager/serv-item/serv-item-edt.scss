@@ -1,0 +1,37 @@
+.serv-item-edt {
+
+	.wrap-header {
+		max-width: 280px;
+		margin: 0 auto 8px;
+		@extend .clearfix;
+
+		.wrap-title {
+			margin-right: 30px;
+		}
+
+		.wrap-del {
+			width: 29px;
+			float: right;
+		}
+	}	
+
+	.inp {
+		max-width: 100px;
+	}
+
+	.currency-selection {
+		margin-left: 6px;
+	}
+
+	.form-item-header {
+		font-weight: bold;
+		margin-bottom: 6px;
+		font-size: 0.85rem;
+		color: #555;
+	}
+
+	.serv-form {
+		max-width: 280px;
+		margin: 0 auto;
+	}
+}

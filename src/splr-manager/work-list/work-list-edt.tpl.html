@@ -1,0 +1,39 @@
+<div class="work-list-edt">
+  <!-- <h2 class="header">Работы</h2> -->
+  <div ng-if="canInsert">
+	<div work-creator-edt
+		 data-serv-rubric-id="servRubricId"
+		 data-serv-rubric-name="servRubricName"
+		 data-master-profile-id="masterProfileId"
+		 data-arr-serv-work="arr_serv_work">
+	</div>
+  </div>
+  
+  <div ng-if="arr_serv_work">
+  	<div class="list-item"
+  		 ng-repeat="wrk in arr_serv_work">
+  	  <div work-item-edt
+  	  	   data-serv-work="wrk"
+  	  	   data-vpos="vpos">
+  	  </div>
+  	  <div ng-if="canDelete">
+  		<button class="button-del"
+  				title="удалить работу"
+  				ng-click="deleteServWork(wrk.id, servRubricId)">
+  		  <i class="fa fa-trash"></i>
+  		</button>
+  	  </div>
+  	</div>
+  	<!-- <div ng-if="arr_serv_work.length === 0"> -->
+  	<!--   фотографий не найдено -->
+  	<!-- </div> -->
+  </div>
+  
+  <div class="err-msg" ng-if="err_arr">
+	{{err_arr.msg}}
+  </div>
+  <div ng-if="!err_arr && !arr_serv_work">
+	...
+  </div>
+</div>
+<!-- для отображения мастера в каталоге необходимо загрузить хотя бы одну работу (фото или ссылку на видео) -->

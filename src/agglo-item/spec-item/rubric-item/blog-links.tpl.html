@@ -1,0 +1,18 @@
+<div class="blog-links"
+	 ng-if="rubricArticles.length">
+  <div class="blog-links__header">
+	Статьи по теме
+  </div>
+  <ul>
+	<li class="blog-links__item"
+		ng-repeat="article in rubricArticles">
+	  <a target="_blank"
+		 ng-href="{{article.lnk}}">
+		{{article.ttl}}
+		<sup>
+		  <i class="fa fa-external-link"></i>
+		</sup>
+	  </a>
+	</li>
+  </ul>
+</div>

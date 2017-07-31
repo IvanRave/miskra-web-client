@@ -1,0 +1,22 @@
+<form class="frm"
+	  name="phoneForm"
+	  ng-submit="updatePhone(supplier)">
+  <div class="frm__inp">
+	<label>Мобильный телефон (публичный)</label>
+	<input ng-model="supplier.main_phone"
+		   placeholder="+79871234567"/>
+  </div>
+  <div class="frm__but">
+	<button class="app-button"
+			ng-disabled="update_progress"
+			type="submit">
+	  Сохранить
+	</button>
+	<span ng-if="update_progress">
+	  сохранение...
+	</span>
+	<span ng-if="is_saved">
+	  сохранено успешно
+	</span>	
+  </div>
+</form>

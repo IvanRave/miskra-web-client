@@ -1,0 +1,152 @@
+<!-- full page -->
+<!-- if not found - redirect to real 404 page -->
+<!-- if system error - redirect to 500 error -->
+
+<div class="work-item"
+	 ng-if="sw">
+  <!-- img or div: depends of a support object-fit property -->
+  <div class="full-height"
+	   ng-if="sw.main_img">
+	<div class="work-item__img-wrap"
+  		 data-full-size-img
+  		 data-img-src="{{sw.main_img}}"
+  		 data-work-id="{{sw.id}}"
+  		 ng-click="is_full=!is_full">
+	</div>
+  </div>
+  <div class="full-height"
+	   ng-if="sw.main_video">	  
+	<div ytb-video
+		 class="work-item__video-wrap"
+		 data-yid="{{sw.main_video}}">
+	</div>
+  </div>
+  <div class="abs-top">
+	<div class="work-item__top-wrap"
+		 ng-show="!is_full">
+	  <div class="work-item__back-link-wrap">
+		<button class="work-item__back-link empty-button"
+  				title="назад"
+  				onclick="history.back()">
+		  <!-- works only with rootscope -->
+		  <!-- ng-if="" -->
+		  <!-- add statePrev after loading master profile -->
+  		  <span class="fa fa-arrow-left">
+  		  </span>
+  		</button>
+	  </div>
+	  <div class="work-item__splr-link-wrap">
+		<h1 class="work-item__header">
+		  <span ng-if="sw.main_serv_rubric">
+			{{sw.main_serv_rubric.name}}
+		  </span>
+		  &copy;<a class="work-item__splr-link"
+				   ng-if="link_supplier"
+				   ng-href="{{link_supplier}}">
+			{{sw.master_profile_name}}
+		  </a>
+		</h1>
+	  </div>
+  	</div>
+  </div>
+  <div ng-if="sw.arr_serv_rubric && sw.arr_serv_rubric.length">
+	<div class="work-item__dscr-wrap"
+		 ng-show="!is_full">
+	  <span class="work-item__dscr">
+		<span ng-repeat="rbr in sw.arr_serv_rubric">
+		  <a class="work-item__dscr-tag-link"
+			 title="Все мастера и салоны красоты по услуге {{rbr.name}} в городе {{sw.city_name}}"
+			 ng-href="{{calcHrefRubric(sw.city_name, rbr.serv_group_id, rbr.name)}}"
+			 ng-if="sw.city_name">
+			{{rbr.name}}
+		  </a>
+		  <span class="work-item__dscr-tag"
+				ng-if="!sw.city_name">
+			{{rbr.name}}
+		  </span>
+		</span>
+		<!-- ng-bind="sw.fullDscr" -->
+		<!-- <span ng-bind="sw.created * 1000 | date: 'dd.MM.yyyy'"> -->
+		<!-- </span> -->
+		<!-- {{sw.words}} -->
+		<!-- <span class="work-item__dscr-tag" -->
+		<!-- 	  ng-repeat="tagItem in sw.tags"> -->
+		<!--   #{{tagItem}} -->
+		<!-- </span> -->
+	  </span>
+	</div>
+  </div>
+  <div class="work-item__soc-wrap"
+	   ng-if="url_to_share && sw.main_serv_rubric && sw.main_img"
+	   ng-show="!is_full">	
+	<div class="work-item__button-wrap">
+	  <div app-vk-like
+		   data-subject-url="{{url_to_share}}"
+		   data-subject-id="media{{sw.id}}"
+		   data-page-title="{{sw.main_serv_rubric.name}}"
+		   data-page-description="{{sw.master_profile_name}}"		  
+		   data-page-image="{{sw.preview_img}}"
+		   analytics-on="click"
+		   analytics-category="workitem"
+		   analytics-event="likework">
+	  </div>
+	</div>
+  </div>
+</div>
+
+<div ng-if="err_msg">
+  <div class="err-msg" ng-bind="err_msg">
+  </div>
+  <div class="err-alt">
+	<a ui-sref="byt.welcome">
+	  Перейти на главную страницу
+	</a>
+  </div>
+</div>
+<!-- <div style="display: inline-block; margin: 0 12px">		 -->
+<!-- 	<button class="app-button" -->
+<!-- 			   ng-click="wallPost(splr, msrv, sw)" -->
+<!-- 			   aria-label="добавить на стену" -->
+<!-- 			   analytics-on -->
+<!-- 			   analytics-category="share" -->
+<!-- 			   analytics-event="share-work-wall"> -->
+<!-- 	  <span class="work-item__soc-wall"> -->
+<!-- 		На стену -->
+<!-- 	  </span> -->
+<!-- 	  <span class="fa fa-share fa-lg"> -->
+<!-- 	  </span> -->
+<!-- 	</button> -->
+<!-- </div> -->
+<!-- <button class="app-button" -->
+<!-- 			 ng-click="socLike(splr, msrv, sw)" -->
+<!-- 			 aria-label="нравится" -->
+<!-- 			 analytics-on -->
+<!-- 			 analytics-category="share" -->
+<!-- 			 analytics-event="share-soc-like"> -->
+<!-- 	Нравится -->
+<!-- 	<span class="fa fa-heart fa-lg"> -->
+<!-- 	</span> -->
+<!-- </button> -->
+
+<!-- <iframe class="work-item__embed" -->
+<!-- 		  frameborder="0" -->
+<!-- 		  id="sw_frame" -->
+<!-- 		  ng-src="{{sw.embed_link}}"> -->
+<!-- </iframe> -->
+<!-- <blockquote class="instagram-media" data-instgrm-version="6" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"> -->
+<!-- 	<div style="padding:8px;"> -->
+<!-- 	  <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> -->
+<!-- 		<div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"> -->
+<!-- 		</div> -->
+<!-- 	  </div> -->
+<!-- 	  <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"> -->
+<!-- 		<a href="https://www.instagram.com/p/BBmTX74SU_P/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Фото опубликовано Evgeny Kushnarev (@eugeneplaya) -->
+<!-- 		</a> -->
+<!-- 		<time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-02-10T08:27:11+00:00"> -->
+<!-- 		  Фев 10 2016 в 12:27 PST -->
+<!-- 		</time> -->
+<!-- 	  </p> -->
+<!-- 	</div> -->
+<!-- </blockquote> -->
+
+<!-- <img src="https://www.instagram.com/p/BBmTX74SU_P/media/?size=t"/> -->

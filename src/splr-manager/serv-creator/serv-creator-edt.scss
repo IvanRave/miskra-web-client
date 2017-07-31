@@ -1,0 +1,59 @@
+.serv-creator-edt {
+	max-width: 280px;
+	margin: 0 auto;
+	
+	.header{
+		margin-bottom: 8px;
+	}
+
+	.group-header {
+		padding: 6px 8px;
+		background: #555;
+		color: #eee;
+		border: 1px solid #777;
+		width: 100%;
+		cursor: pointer;
+
+		&:hover {
+			background: #777;
+			color: #fff;
+		}
+
+		i {
+			float:right;
+			font-size: 1.6rem;
+		}
+	}
+
+	.groups {
+		li {
+			margin: 12px 0;
+		}
+	}
+
+	.rubrics {
+		
+		li {
+			margin: 20px 4px 20px 12px;
+			
+			label {
+				cursor: pointer;
+				
+				input {
+					width: 16px;
+					height: 16px;
+					vertical-align: middle;
+				}
+
+				span {
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+
+	.back-link {
+		margin: 16px 0;
+		text-align: center;
+	}
+}

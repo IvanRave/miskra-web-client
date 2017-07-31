@@ -1,0 +1,96 @@
+<div>
+  <h1 class="pdng">
+	{{quizItem.ttl}}
+  </h1>
+  <p class="pdng"
+	 ng-bind="quizItem.dscr">
+  </p>
+  <!-- show result -->
+  <!-- show question -->
+  
+  <!-- send all answers-params to drct -->
+  <!-- or calculate one and show it -->
+  <!-- if no answers more - this drct is not needed -->
+  <!-- show other directive with result -->
+
+  <!-- <div>List of answered questions</div> -->
+  <!-- <div>Current question</div> -->
+  <!-- <div>List of unanswered questions</div> -->
+  <!-- <div>Switcher between questions</div> -->
+  <!-- <div>Result or list of possible results</div> -->
+
+  <div ng-repeat="qu in quizItem.question_list">
+	<div data-qstn-item-drct
+		 data-item="qu">
+	</div>
+  </div>
+  <div class="pdng">
+	<div>
+	  <button class="app-button full-width"
+			  data-ng-disabled="calcAnswerIds(quizItem).length !== quizItem.question_list.length"
+			  data-ng-click="calcResult(quizItem)">
+		<!-- calculate results from a server -->
+		<!-- redirect to an according page with results -->
+		<!-- result: image + text for sharing and seo -->
+		<!-- links to results only from shared posts: no direct links from a site -->
+		Показать результат
+	  </button>
+	</div>
+	<div class="text-center">
+	  <span>
+		ответов: {{calcAnswerIds(quizItem).length}} из {{quizItem.question_list.length}}
+	  </span>
+	</div>
+  </div>
+  <div ng-if="qresItem">
+	<div qres-item-drct
+		 data-qres-item="qresItem"
+		 data-quiz-item="quizItem">
+	</div>
+  </div>
+  
+  <!-- one comment form per a quiz -->
+  <!-- one link for quiz to share: not for every result -->
+  <!-- try to attach a generated image for result -->
+  <!-- show it always: users will be read it before a quiz -->
+  <div class="pdng">
+	<div app-comment-form
+		 data-subject-id="quiz{{quizItem.id}}"
+		 data-subject-url="{{url_to_share}}">
+	</div>
+  </div>
+
+  <div data-ng-if="err">
+  	{{err}}
+  </div>
+
+  <div class="mrgn text-center">
+	<a ui-sref="byt.welcome">
+	  Вернуться на главную
+	</a>
+  </div>
+</div>
+
+<!-- <div class="pull-left pdng" -->
+<!-- 	 ng-if="item.questions.indexOf(qstn) !== 0"> -->
+<!--   <a href="" onclick="window.history.back()"> -->
+<!-- 	назад -->
+<!--   </a> -->
+<!-- </div> -->
+<!-- <div class="pull-left pdng" -->
+<!-- 	 ng-if="item.questions.indexOf(qstn) !== 0"> -->
+<!--   <a ui-sref="byt.quizItem({answers: null})"> -->
+<!-- 	сначала  -->
+<!--   </a> -->
+<!-- </div> -->
+<!-- <div class="pull-right pdng" -->
+<!-- 	 ng-if="qstn"> -->
+<!--   <ul class="qstn-num"> -->
+<!-- 	<li class="qstn-num__item-wrap" -->
+<!-- 		data-ng-repeat="qstnItem in item.questions"> -->
+<!-- 	  <span ng-if="qstnItem !== qstn">{{$index + 1}}</span> -->
+<!-- 	  <span class="qstn-num__slc" -->
+<!-- 			ng-if="qstnItem === qstn">{{$index + 1}}</span> -->
+<!-- 	</li> -->
+<!--   </ul> -->
+<!-- </div> -->

@@ -1,0 +1,22 @@
+<form class="frm"
+	  name="vkidForm"
+	  ng-submit="updateVkid(supplier.id, supplier.vk_id)">
+  <div class="frm__inp">
+	<label>Vkontakte id (число)</label>
+	<input ng-model="supplier.vk_id"
+		   placeholder="7654321"/>
+  </div>
+  <div class="frm__but">
+	<button class="app-button"
+			ng-disabled="update_progress"
+			type="submit">
+	  Сохранить
+	</button>
+	<span ng-if="update_progress">
+	  сохранение...
+	</span>
+	<span ng-if="is_saved">
+	  сохранено успешно
+	</span>
+  </div>
+</form>

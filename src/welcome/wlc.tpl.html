@@ -1,0 +1,58 @@
+<div data-app-toolbar>
+</div>
+
+<div class="app-content">
+  <div class="pure-g">
+  	<div class="pure-u pure-u-md-1-4"></div>
+  	<div class="pure-u-1 pure-u-md-1-2">
+	  <div class="wlc">
+		<h1 class="wlc__header">
+		  Мастера и салоны красоты
+		</h1>
+		<p class="wlc__description">
+		  Парикмахеры, стилисты, визажисты, услуги по уходу за ногтями, бровями и ресницами - более 30 000 мастеров и салонов красоты.
+		</p>
+		<div class="wlc__agglo-wrap"
+			 ng-include="'welcome/agglo-slr.tpl.html'">
+		</div>
+		<!-- <div class="wlc__master-lgn"> -->
+  		<!--   <a href="host../login" -->
+		<!-- 	 target="_blank">		 -->
+		<!-- 	Вход для мастеров и салонов -->
+		<!-- 	<sup> -->
+		<!-- 	  <span class="fa fa-external-link"></span> -->
+		<!-- 	</sup> -->
+		<!--   </a> -->
+		<!-- </div> -->
+
+		<div class="wlc__test text-center">
+  		  <a ui-sref="byt.quizItem.qstnList({quiz_ttl: 'какая-прическа-мне-подойдет'})">
+			<span class="fa fa-question-circle">
+			</span>
+			Тест: какая прическа мне подойдет
+		  </a>
+		</div>
+		<!-- this doesnt work in a menu -->
+	  </div>
+	</div>
+  </div>
+  <div data-app-footer></div>
+</div>
+
+<!-- <ul> -->
+<!--   <li>фотографии работ мастеров</li> -->
+<!--   <li>карта с ближайшими салонами</li> -->
+<!--   <li>открытые контактные данные</li> -->
+<!-- </ul> -->
+<!-- </div> -->
+<!-- <div ng-if="is_prg"> -->
+<!-- 	<div ng-if="!perm_data.is_perm_checked"> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <div ng-if="perm_data.is_perm_checked"> -->
+<!-- add byt.aggloItem view -->
+<!-- no selected agglomeration -->
+<!--motivation and action for clients-->
+
+<!-- area exists if an agllo is auto checked -->
+<!-- already, do not show during checking -->

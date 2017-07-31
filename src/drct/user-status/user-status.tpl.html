@@ -1,0 +1,110 @@
+<div class="user-status">
+  <div ng-if="!sessData.is_loaded">
+	<div class="text-center">
+	  ...
+	</div>
+  </div>
+  <div ng-if="sessData.is_loaded">
+	<div ng-if="!sessData.uid">
+	  <a class="user-status__icon"
+		 ng-href="{{href_login}}">
+		<span class="fa fa-sign-in">
+		</span>		
+		<!-- <br /> -->
+		<!-- <span style="font-size: 0.8rem; text-transform: none"> -->
+		<!--   мастера/салоны -->
+		<!-- </span> -->
+	  </a>
+	  <!-- 	  <span ng-if="sessData.uid === 0"> -->
+	  <!-- 	модератор -->
+	  <!-- </span> -->
+	</div>
+	<!-- uid means - authorized -->
+	<!-- vk: vk-id -->
+	<!-- moder: 2,3 -->
+	<!-- supplier: 123456 -->
+	<div ng-if="sessData.uid">
+	  <!-- if authed - person avatar and menu -->
+	  <div ng-if="sessData.is_supplier">
+		<!-- show link to supplier page -->
+		<a ng-href="{{href_supplier}}">
+		  <!-- show icon or avatar -->
+		  <span class="back-img user-status__img"
+	  			ng-if="sessData.avatar"
+	  			ng-style="{'background-image': 'url({{sessData.avatar}})'}">
+		  </span>
+		  <span class="user-status__icon"
+				ng-if="!sessData.avatar">
+			<span class="fa fa-user">
+			</span>
+		  </span>		  
+		</a>
+	  </div>
+
+	  
+	  <div ng-if="sessData.is_editor">
+		<!-- show button with logout function -->
+		<button class="empty-button user-status__icon"
+				ng-click="confirmLogout()">
+		  <span ng-if="sessData.is_moder" class="fa fa-empire">
+		  </span>
+		  <span ng-if="!sessData.is_moder" class="fa fa-user-secret">
+		  </span>
+		</button>
+	  </div>
+
+	  
+	  <div ng-if="!sessData.is_editor && !sessData.is_supplier">
+		<!-- only for vk at this moment: -->
+		<!-- show avatar or icon  -->
+		<!-- no exit; no cabinet -->
+		<span class="back-img user-status__img"
+	  		  ng-if="sessData.avatar"
+	  		  ng-style="{'background-image': 'url({{sessData.avatar}})'}">
+		</span>
+		<span class="user-status__icon"
+			  ng-if="!sessData.avatar">
+		  <span class="fa fa-user">
+		  </span>
+		</span>
+	  </div>
+	
+	</div>
+  </div>
+</div>
+
+<!-- <md-menu md-position-mode="target-right target"> -->
+<!-- 		<div ng-click="$mdOpenMenu()" -->
+<!-- 			 style="cursor:pointer; width: 40px; height: 40px;margin-top: 4px" -->
+<!-- 			 title="открыть меню пользователя" -->
+<!-- 			 aria-label="открыть меню пользователя"> -->
+
+<!-- 		</div> -->
+<!-- 		<md-menu-content width="4"> -->
+<!-- 		  <\!-- menu only for masters: not for users -\-> -->
+<!-- 		  <md-menu-item ng-if="sessData.is_supplier"> -->
+<!-- 			<md-button ng-href="{{href_supplier}}" -->
+<!-- 					   style="padding-top:4px"> -->
+<!-- 			  Просмотреть профиль -->
+<!-- 			</md-button> -->
+<!-- 		  </md-menu-item> -->
+<!-- 		  <md-menu-item ng-if="sessData.is_supplier"> -->
+<!-- 			<md-button ng-href="{{href_manage}}" -->
+<!-- 					   style="padding-top:4px"> -->
+<!-- 			  Редактировать профиль -->
+<!-- 			</md-button> -->
+<!-- 		  </md-menu-item> -->
+<!-- 		  <md-menu-item ng-if="!sessData.is_supplier"> -->
+<!-- 			<md-button ui-sref="byt.aggloList" -->
+<!-- 					   style="padding-top:4px"> -->
+<!-- 			  Изменить город -->
+<!-- 			</md-button> -->
+<!-- 		  </md-menu-item> -->
+<!-- 		  <\!-- <md-menu-divider></md-menu-divider> -\-> -->
+<!-- 		  <md-menu-item  ng-if="sessData.is_supplier || sessData.is_editor"> -->
+<!-- 			<md-button ng-click="logout()"> -->
+<!-- 			  Выход -->
+<!-- 			</md-button> -->
+<!-- 		  </md-menu-item> -->
+<!-- 		</md-menu-content> -->
+<!-- 	  </md-menu> -->

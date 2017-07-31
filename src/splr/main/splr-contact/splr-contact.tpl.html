@@ -1,0 +1,375 @@
+<div class="clearfix">
+  <div ng-if="ctct.type === 'phone'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-mobile">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		<span ng-show="is_phone_open">
+		  <a itemprop="telephone"
+			 ng-href="tel:{{ctct.value}}"
+			 ng-bind="ctct.value">
+		  </a>
+		</span>
+		<span ng-show="!is_phone_open"
+			  style="cursor:pointer"
+			  analytics-on="click"
+			  analytics-category="contact"
+			  analytics-event="contact-phone"
+			  ng-click="is_phone_open = true">
+		  <span ng-bind="ctct.value.substr(0, 5)"></span>
+		  <span>...</span>
+		  <span class="ctct__show-link">
+			показать
+		  </span>
+		</span>				
+	  </div>
+	  <div class="ctct__text-sub">
+		мобильный телефон
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'landline'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-phone">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		<span ng-show="is_landline_open">
+		  <span ng-bind="ctct.value"></span>
+		</span>
+		<span ng-show="!is_landline_open"
+			  style="cursor:pointer"
+			  analytics-on="click"
+			  analytics-category="contact"
+			  analytics-event="contact-landline"
+			  ng-click="is_landline_open = true">
+		  <span ng-bind="ctct.value.substr(0, 5)"></span>
+		  <span>...</span>
+		  <span class="ctct__show-link">
+			показать
+		  </span>
+		</span>				
+	  </div>
+	  <div class="ctct__text-sub"> 
+		стационарный телефон
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'whatsapp'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-whatsapp">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		<span ng-show="is_whatsapp_open">
+		  <a ng-href="tel:{{ctct.value}}"
+			 ng-bind="ctct.value">
+		  </a>
+		</span>
+		<span ng-show="!is_whatsapp_open"
+			  style="cursor:pointer"
+			  analytics-on="click"
+			  analytics-category="contact"
+			  analytics-event="contact-whatsapp"
+			  ng-click="is_whatsapp_open = true">
+		  <span ng-bind="ctct.value.substr(0, 5)"></span>
+		  <span>...</span>
+		  <span class="ctct__show-link">
+			показать
+		  </span>
+		</span>				
+	  </div>
+	  <div class="ctct__text-sub"> 
+		whatsapp
+		<!-- <span ng-bind="ctct.alias"></span> -->
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'viber'">
+	<!-- no viber icon in fa -->
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-phone-square">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		<span ng-show="is_viber_open">
+		  <a ng-href="tel:{{ctct.value}}"
+			 ng-bind="ctct.value">
+		  </a>
+		</span>
+		<span ng-show="!is_viber_open"
+			  style="cursor:pointer"
+			  analytics-on="click"
+			  analytics-category="contact"
+			  analytics-event="contact-viber"
+			  ng-click="is_viber_open = true">
+		  <span ng-bind="ctct.value.substr(0, 5)"></span>
+		  <span>...</span>
+		  <span class="ctct__show-link">
+			показать
+		  </span>
+		</span>				
+	  </div>
+	  <div class="ctct__text-sub"> 
+		viber
+		<!-- <span ng-bind="ctct.alias"></span> -->
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'fax'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-fax">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div itemprop="faxNumber"
+		   ng-bind="ctct.value">
+	  </div>
+	  <div class="ctct__text-sub"> 
+		факс
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'email'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-envelope">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		<span ng-show="is_email_open">
+		  <span itemprop="email"
+				ng-bind="ctct.value">
+		  </span>
+		</span>
+		<span ng-show="!is_email_open"
+			  style="cursor:pointer"
+			  analytics-on="click"
+			  analytics-category="contact"
+			  analytics-event="contact-email"
+			  ng-click="is_email_open = true">
+		  <span ng-bind="ctct.value.substr(0, 7)"></span>
+		  <span>...</span>
+		  <span class="ctct__show-link">
+			показать
+		  </span>
+		</span>	
+	  </div>
+	  <div class="ctct__text-sub"> 
+		email
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'skype'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-skype">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div>
+		{{ctct.alias}}
+		<!-- <a analytics-on -->
+		<!--    analytics-category="contact" -->
+		<!--    analytics-event="contact-skype" -->
+		<!--    ng-href="{{ctct.value}}"> -->
+		<!--   {{ctct.alias}} -->
+		<!-- </a> -->
+	  </div>
+	  <div class="ctct__text-sub"> 
+		Skype
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'icq'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-comments">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div ng-bind="ctct.value"></div>
+	  <div class="ctct__text-sub"> 
+		icq
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'jabber'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-comments-o">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <div ng-bind="ctct.value"></div>
+	  <div class="ctct__text-sub"> 
+		jabber
+		<span ng-bind="ctct.alias"></span>
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'website'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-globe">
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+		 ng-if="ctct.value"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-website"
+		 ng-href="{{ctct.value}}">
+		{{ctct.alias}}
+		<sup><span class="fa fa-external-link"></span></sup>
+	  </a>
+	  <span ng-if="!ctct.value">
+		нет данных
+	  </span>
+	  <div class="ctct__text-sub"> 
+		веб-сайт
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'vkprofile'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-vk">	       
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-vkprofile"
+		 ng-href="{{ctct.value}}">
+		{{ctct.alias}}
+		<sup><span class="fa fa-external-link"></span></sup>
+	  </a>
+	  <div class="ctct__text-sub"> 
+		ВКонтакте (профиль)
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'vkontakte'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-vk">	       
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-vkn"
+		 ng-href="{{ctct.value}}">
+		{{ctct.alias}}
+		<sup><span class="fa fa-external-link"></span></sup>
+	  </a>
+	  <div class="ctct__text-sub"> 
+		ВКонтакте (группа)
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>  
+  <div ng-if="ctct.type === 'odnoklassniki'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-users">   
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-odnoklassniki"
+		 ng-href="{{ctct.value}}">
+		<span ng-bind="ctct.alias"></span>
+	  </a>
+	  <div class="ctct__text-sub"> 
+		Одноклассники
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'facebook'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-facebook">   
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-fbk"
+		 ng-href="{{ctct.value}}">
+		<span ng-bind="ctct.alias"></span>
+	  </a>
+	  <div class="ctct__text-sub"> 
+		Facebook
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'instagram'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-instagram">   
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <a target="_blank"
+		 rel="nofollow"
+         itemprop="sameAs"
+		 aria-label="instagram"
+		 analytics-on
+		 analytics-category="contact"
+		 analytics-event="contact-nstg"
+		 ng-href="{{ctct.value}}">
+		{{ctct.alias}}
+		<sup><span class="fa fa-external-link"></span></sup>
+	  </a>
+	  <div class="ctct__text-sub">
+		Instagram
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+  <div ng-if="ctct.type === 'twitter'">
+	<div class="ctct__icon-wrap">
+	  <span class="fa fa-twitter">   
+	  </span>
+	</div>
+	<div class="ctct__text-wrap">
+	  <!-- it might be a href or just username -->
+	  <!-- todo: use hrefs after changing logic -->
+	  <span ng-bind="ctct.alias"></span>
+	  <div class="ctct__text-sub"> 
+		Twitter
+		<span ng-bind="ctct.comment"></span>
+	  </div>
+	</div>
+  </div>
+</div>
+<!-- type — тип контакта, возможные значения:
+	 email, website, phone, fax, icq, jabber, skype,
+	 vkontakte, twitter, instagram, facebook; -->

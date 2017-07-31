@@ -1,0 +1,56 @@
+@import './serv-item/serv-item-edt';
+@import './serv-list/serv-list-edt';
+@import './serv-creator/serv-creator-edt';
+@import './work-creator/work-creator-edt';
+@import './work-list/work-list-edt';
+@import './work-item/work-item-edt';
+
+.mngr {
+
+	.mngr__wrap {
+		max-width: 800px;
+		margin: 0 auto;
+		background: #F7F7F7;
+		border-left: 1px solid #eee;
+		border-right: 1px solid #eee;
+		padding: 8px 0;
+		min-height: 100%;
+	}
+	
+	.mngr__header {
+		margin: 8px;
+	}
+
+	.mngr__content {
+		margin: 8px;
+	}
+
+	.mngr__splr-status {
+		font-size: 0.75rem;
+	}
+
+	.mngr__menu {
+		// box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+		text-align: center;
+		margin-top: 4px;
+		li {
+			display: inline-block;
+			margin: 2px;
+		}
+	}
+
+	.mngr__menu-link {
+		width: 76px;
+		height: 40px;
+		padding: 12px 2px;
+		text-align: center;
+		font-size: 0.85rem;
+		border-bottom: 1px dashed #ccc;
+		display: inline-block;
+	}
+
+
+	.mngr__soc-block {
+		border-bottom: 6px solid #fff;
+	}
+}

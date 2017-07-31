@@ -1,0 +1,40 @@
+<div data-app-toolbar>
+</div>
+<!-- geo search in header -->
+
+<div class="app-content">
+  <div class="full-height"
+	   ng-if="q_spec">	
+	<div class="full-height"
+		 ng-if="startLng && startLat && startZoom">
+	  <div lfl-map
+	  	   class="my-map custom-popup"
+	  	   data-start-lng="{{startLng}}"
+		   data-start-lat="{{startLat}}"
+	  	   data-start-zoom="{{startZoom}}"
+		   data-map-move="mapMove"
+	  	   data-map-markers="mapMarkers">
+	  </div>
+	</div>
+	<div class="pdng text-center"
+		 ng-if="!startLng && !startLat && !startZoom && !errMap">
+	  загрузка карты...
+	</div>
+	<div class="err-msg"
+		 ng-if="errMap">
+	  {{errMap.msg}}
+	</div>
+  </div>
+  <div ng-if="!q_spec && arr_serv_group"
+	   class="pdng text-center">
+	<div class="pdng mrgn">Укажите рубрику</div>
+	<ul>
+	  <li class="pdng"
+		  ng-repeat="grp in arr_serv_group">
+		<a ui-sref="byt.map({spec: grp.id})">
+		  {{grp.name}}
+		</a>
+	  </li>
+	</ul>
+  </div>
+</div>

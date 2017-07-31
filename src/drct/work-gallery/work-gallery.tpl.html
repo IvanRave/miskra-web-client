@@ -1,0 +1,89 @@
+<div class="wgal">
+  <div class="wgal__photo-wrap"
+	   ng-if="workScope.arr.length > 0">
+	<div class="wgal__work-slide"
+		 ng-repeat="item in workScope.arr">
+	  <div ng-if="item.main_video">
+	  	<div class="ximg">
+	  	  <div class="ximg__img"
+			   ng-if="$first || stateShow.val"
+	  	  	   ytb-video
+	  	  	   data-yid="{{item.main_video}}">
+	  	  </div>
+	  	</div>
+	  </div>
+	  <div ng-if="item.preview_img"
+	  	   app-gallery-item
+	  	   app-item="item"
+	  	   app-wrap-elem-id="wrapElemId"
+	  	   app-is-show-image="$first || stateShow.val">
+	  </div>
+	  <!-- footer required for static layout -->
+	  <!-- and mixed images: from vk and nstg users -->
+	  <footer class="wgal__footer">
+		<span ng-if="!item.side_link">&nbsp;</span>
+		<span ng-if="item.side_link">
+		  <a target="_blank"
+  			 ng-href="{{item.side_link}}">
+  			photo
+		  </a>
+		  by
+		  <a ng-href="https://www.instagram.com/{{supItem.username}}/"
+  			 target="_blank"
+  			 ng-bind="supItem.username">
+		  </a>
+		  on
+		  <a href="https://www.instagram.com" target="_blank">
+  			instagram
+		  </a>
+		</span>
+	  </footer>
+	  <button class="wgal__arrow wgal__prev"
+			  title="предыдущее фото"
+			  ng-if="workScope.arr.length > 1"
+			  onclick="this.parentNode.parentNode.scrollLeft -= this.parentNode.clientWidth;"
+			  ng-disabled="$first"
+			  analytics-on
+			  analytics-category="gallerytbl"
+			  analytics-event="gallerytbl-prev">
+		<i class="fa fa-chevron-left"></i>
+	  </button>
+
+	  <button class="wgal__arrow wgal__next"
+			  title="следующее фото"
+			  ng-if="workScope.arr.length > 1"
+			  ng-click="switchNext()"
+			  ng-disabled="$last"
+			  onclick="this.parentNode.parentNode.scrollLeft += this.parentNode.clientWidth;"
+			  analytics-on
+			  analytics-category="gallerytbl"
+			  analytics-event="gallerytbl-next">
+		<i class="fa fa-chevron-right"></i>
+	  </button>	
+	</div>
+  </div>
+  <div ng-if="!workScope.arr && !workScope.err">
+	<div class="ximg">
+	  <div class="ximg__img ximg__wait">
+		...
+	  </div>
+	</div>
+	<footer class="wgal__footer"></footer>
+  </div>
+  <div ng-if="workScope.arr && workScope.arr.length === 0">
+	<div class="ximg">
+	  <div class="ximg__img ximg__nothing">
+		нет фото
+	  </div>
+	</div>
+	<footer class="wgal__footer"></footer>
+  </div>
+  <div ng-if="workScope.err">
+	<div class="ximg">
+	  <div class="ximg__img ximg__nothing">
+		нет фото
+	  </div>
+	</div>
+	<footer class="wgal__footer"></footer>
+  </div>
+</div>

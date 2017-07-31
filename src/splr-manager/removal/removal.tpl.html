@@ -1,0 +1,24 @@
+<div class="text-center"
+	 ng-if="is_owner || sessData.is_moder">
+  <p>
+	Из системы удаляются все данные аккаунта, в том числе контакты, услуги и работы.
+  </p>
+  <div ng-if="!is_progress">
+	<div>
+	  <button class="app-button"
+			  ng-click="removeAccount(supplier)">
+		Удалить аккаунт
+	  </button>
+	</div>
+	<div>
+	  <small>*последующее восстановление аккаунта невозможно</small>
+	</div>
+  </div>
+  <div ng-if="is_progress"
+	   class="text-center">
+	удаление...
+  </div>
+  <div class="err-msg" ng-if="err_msg">
+	{{err_msg}}
+  </div>
+</div>

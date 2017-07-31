@@ -1,0 +1,22 @@
+.user-status {
+	$icon-color: #fff;
+	
+	.user-status__icon {
+		display: inline-block;
+		padding-top: 8px;
+		color: $icon-color;
+		font-size: 1.8rem;
+	}
+
+	.user-status__icon:hover {
+		color: darken($icon-color, 10%);
+	}
+
+	.user-status__img {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		margin-top: 3px;
+	}
+
+}

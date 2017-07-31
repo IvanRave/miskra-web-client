@@ -1,0 +1,280 @@
+<!-- https://yandex.ru/support/webmaster/supported-schemas/address-organization.xml -->
+<!-- todo: hairsalon vs beautysalon vs nailsalon -->
+
+<div data-app-toolbar
+	 ng-if="!is_map"
+	 data-agglo-name="vfirm.city_name"
+	 data-splr-name="vfirm.name"
+	 data-splr-id="vfirm.id">
+</div>
+
+<!-- do not show a master link for map items: it is disallowed in SEO -->
+<div data-app-toolbar
+	 ng-if="is_map"
+	 data-agglo-name="vfirm.city_name">
+</div>
+
+<div class="app-content"	 
+	 app-scroll-watcher
+	 tabindex="-1"
+	 app-vpos="vpos">
+
+  <div ng-if="is_prg">
+	<div ng-if="!vfirm && !err_msg">
+	  <div class="text-center pdng">
+		загрузка информации...
+	  </div>
+	</div>
+  </div>
+
+  <!-- 	<div ng-if="statePrev.url" -->
+  <!-- 		 class="pdng mrgn"> -->
+  <!-- 	  <a ng-href="{{statePrev.url}}" -->
+  <!-- 		 onclick="history.back(); return false;"> -->
+  <!-- 		<span class="fa fa-arrow-left"> -->
+  <!-- 		</span> -->
+  <!-- 		НАЗАД -->
+  <!-- 	  </a> -->
+  <!-- 	</div> -->
+  <!-- </div> -->
+  
+  <div class="fade splr"
+	   ng-if="vfirm"
+	   itemscope
+	   itemtype="http://schema.org/BeautySalon">
+	<div class="pure-g">
+	  <div class="pure-u-1 pure-u-sm-1 pure-u-md-1-8">
+	  </div>
+	  <div class="pure-u-1 pure-u-sm-1-4 pure-u-md-1-4">
+		<div class="splr__side-panel"
+			 ng-if="!is_map">
+		  <div ng-if="vfirm.avatar">
+			<img class="splr__avatar"
+				 ng-src="{{vfirm.avatar}}"
+				 itemprop="logo"
+	       		 onerror="this.onerror=null;this.src='data:image/jpeg;base64,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WX73f3qr3oAcylGwRyKmtQcse3ShGWYBJPvdj61YVQoAAwKAGyNsjJ79qo1NcSbm2joKjVSzADqaALNsuEJ9ampFAVQB0FLQAHoaKD0NFABRRRQAVDPHuXcOo/lU1FAGfVmCXcNjde3vUc8W07h909vSoqANCioIp93yvwfX1qegAooooAKKKKACiiigAqCaHd8yj5vT1qeigDO/nU/2hvL2/wAXrST7N3y/e74qKgBKtW0eBvPU9Kihi8w5P3R+tXKACiiigAPQ0UHoaKACiiigAooooACMgg9KqSwFPmXlf5VbooAz6kjnZBg8rUsluG5Xg+lV2VkOGBFAFxZUfoefQ0+s408SOvRjQBeoqoLlx6H8KX7S390UAWqKqG5c9ABTGldurGgC28qJ1P4VXknZuF4H61D9acqsxwoyaAG1LFCZOTwv86kjtwOX5PpVigBAAowBgCloooAKKKKAA9DRQehooAKKKKACiiigAooooAKQgEYIyKWigCFrZD93K1EbZx0wat0UAUTE46qabtPTBrQooAoiNyeFNPFs564H41booAhW2UdSTUoAUYAwKWigAooooAKKKKACiiigAPQ0UHoaKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAD0NFFFAH//Z';"/>
+		  </div>
+		  <!-- <div ng-if="!vfirm.avatar"> -->
+		  <!-- 	<img class="splr__avatar" -->
+		  <!-- 		 src="https://vk.com/images/camera_200.png"/> -->
+		  <!-- </div> -->		  
+		</div>		
+	  </div>
+	  <div class="pure-u-1 pure-u-sm-3-4 pure-u-md-1-2">
+		<div class="splr__main-panel">
+		  <h1 itemprop="name"
+			  ng-bind="vfirm.name">
+		  </h1>
+		  <div class="splr__status">
+			<sup ng-if="vfirm.is_company">
+	  		  салон
+			</sup>
+			<!-- <sup ng-if="vfirm.is_company === false"> -->
+	  		<!--   мастер -->
+			<!-- </sup> -->
+		  </div>
+		  <div class="splr__dscr">
+			<span itemprop="description"
+				  ng-bind="vfirm.bio"
+				  ng-if="vfirm.bio">
+			</span>
+			<!-- bad information for search snippets -->
+			<!-- <span ng-if="!vfirm.bio" style="color: #bbb"> -->
+			<!-- 	нет описания -->
+			<!-- </span> -->
+		  </div>		  
+		  <div class="splr__params">
+			<div ng-include="'splr/main/splr-address.tpl.html'">
+			</div>
+			<ul class="ctct-list">
+			  <li class="ctct-list__item"
+				  ng-repeat="ctct in vfirm.contacts">
+				<div data-splr-contact-drct
+					 data-ctct="ctct">
+				</div>	
+			  </li>
+			</ul>
+		  </div>
+		  <div class="splr__ads"
+			   ng-if="vfirm.ads_article">
+			<div ng-include="'splr/main/splr-ad.tpl.html'">
+			</div>
+		  </div>
+          <div ng-if="sessData.is_editor || vfirm.id === sessData.uid">
+            <div class="pdng">
+              <app-splr-fill data-contacts="vfirm.contacts"
+                             data-address="vfirm.address"
+                             data-bio="vfirm.bio"></app-splr-fill>
+            </div>
+            <div class="pdng">
+			  <a ui-sref="byt.splrManager.profile({supplier_id: vfirm.id})"
+                 analytics-on
+                 analytics-category="master"
+                 analytics-event="edit">
+			    <span class="fa fa-pencil">
+			    </span>
+			    Редактировать профиль
+			  </a>
+		    </div>
+          </div>
+		  <div class="pdng"
+               ng-if="vfirm.id === sessData.uid">
+			<button class="app-button"
+					ng-click="logout()"
+                    analytics-on
+                    analytics-category="master"
+                    analytics-event="exit">
+			  Выйти из аккаунта
+			</button>
+		  </div>
+		</div>
+	  </div>
+	  <div class="pure-u-1 pure-u-sm-1 pure-u-md-1-8">
+	  </div>      
+	</div>
+	<div class="splr__serv-list"
+		 ng-if="arr_master_serv.length > 0">
+	  <div class="pure-g">
+		<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3"
+			 ng-repeat="msrv in arr_master_serv"
+			 on-finish-render="servListRepeatFinished">
+		  <div class="splr__serv-item" 
+			   id="serv{{msrv.id}}">
+			<div data-splr-serv-drct
+				 data-msrv="msrv"
+				 data-city-spec-href="calcCitySpecHref(msrv, vfirm.city_name)"
+				 data-is-editable="sessData.is_editor || vfirm.id === sessData.uid">
+			</div>
+			<div app-work-gallery
+				 app-sup-item="vfirm"
+				 app-work-scope="msrv.work_scope"
+				 app-wrap-elem-id="">
+			  <!-- use supItem + servItem -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+    <div class="splr__soc-block"
+		 ng-if="url_to_share && !is_map">
+	  <div class="splr__soc-item">
+		<div app-vk-like
+			 data-subject-id="supplier{{vfirm.id}}"
+			 data-subject-url="{{url_to_share}}"
+			 data-page-title="{{vfirm.name}}"
+			 data-page-description="{{vfirm.bio}}"
+			 data-page-image="{{vfirm.avatar}}"
+			 analytics-on="click"
+			 analytics-category="masteritem"
+			 analytics-event="likemaster">
+		</div>
+	  </div>
+	</div>
+	<div class="splr__share-block"
+		 ng-if="vfirm && url_to_share && !is_map">
+	  <div app-share-block
+		   data-title="{{vfirm.name}}"
+		   data-permalink="{{url_to_share}}"
+		   data-page-image="{{vfirm.avatar}}">
+	  </div>
+	</div>
+	<!-- new masters may have comments of prev masters -->
+	<!-- when remove a master: remove all comments, likes and shares-->
+	<div class="splr__comment-form"
+		 ng-if="url_to_share && !is_map">
+	  <div app-comment-form
+		   data-subject-id="supplier{{vfirm.id}}"
+		   data-subject-url="{{url_to_share}}">
+	  </div>
+	</div>
+	<div class="splr__city-link"
+		 ng-if="vfirm.city_name">
+	  <a ui-sref="byt.aggloItem.specList({agglo_local_name: vfirm.city_name})">
+		<span ng-if="vfirm.city_name_prepositional">
+		  Просмотреть всех мастеров в {{vfirm.city_name_prepositional}}
+		</span>
+		<span ng-if="!vfirm.city_name_prepositional">
+		  Просмотреть всех мастеров в городе {{vfirm.city_name}}
+		</span>
+	  </a>
+	</div>
+	<div ng-if="statePrev.url"
+		 class="pdng mrgn text-center">
+	  <a ng-href="{{statePrev.url}}"
+		 onclick="history.back(); return false;">
+		<span class="fa fa-arrow-left">
+		</span>
+		Вернуться назад
+	  </a>
+    </div>
+    <div class="splr__id">
+ 	  <a ng-href="{{supplier_url}}"
+		 itemprop="url">
+		id{{splr.id}}
+	  </a>
+	</div>
+  </div>
+
+  <div ng-if="err_msg">
+	<div class="err-msg" ng-bind="err_msg">
+	</div>	
+	<div class="err-alt">
+	  <a ui-sref="byt.welcome">Перейти на главную страницу</a>
+	</div>
+  </div>
+  <div data-app-footer></div>
+</div>
+
+<!-- компания основана: -->
+<!-- <span ng-bind="cur_firm.creation_time | date:'dd.MM.yyyy'"> -->
+<!-- modifiction_time: 2015-04-21 16:18:42.730875+06 -->
+
+<!-- Режим работы: -->
+<!-- usually this the same for all salons -->
+<!-- from 9 till 18 or something -->
+<!-- maybe later realize -->
+<!-- show current day -->
+<!-- show entire week per click -->
+
+<!-- <div class="pure-g splr__wrk-list"> -->
+<!--   <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4" -->
+<!-- 	   ng-repeat="wrk in arr_global_work"> -->
+<!-- 	<div class="splr-wrk"> -->
+<!-- 	  <div class="splr-wrk__img-wrap"> -->
+<!-- 		<a class="splr-wrk__img" -->
+<!-- 		   ng-style="{'background-image': 'url({{wrk.preview_img}})'}" -->
+<!-- 		   ui-sref="byt.mediaItem({media_id: wrk.id})"> -->
+<!-- 		</a> -->
+<!-- 	  </div> -->
+<!-- 	</div> -->
+<!--   </div> -->
+<!-- </div> -->
+<!-- <div class="splr__soc-item" -->
+<!-- 	   ng-if="isAddToBookmarks"> -->
+<!-- 	<button -->
+<!-- 	   class="app-button" -->
+<!-- 	   title="Добавить информацию о мастере или салоне в закладки браузера" -->
+<!-- 	   ng-click="addToBookmarks()" -->
+<!-- 	   analytics-on -->
+<!-- 	   analytics-category="bookmark" -->
+<!-- 	   analytics-event="bookmark-browser"> -->
+<!-- 	  <span class="fa fa-bookmark"> -->
+<!-- 	  </span> -->
+<!-- 	  В закладки браузера -->
+<!-- 	</button> -->
+<!-- </div> -->
+<!-- <div class="splr__btn-wrap" -->
+<!-- 	   ng-if="isWallPostSupplier" -->
+<!-- 	   style="display: inline-block"> -->
+<!-- todo: change it after server rendering: to share with image -->
+<!-- 	<button class="app-button splr__btn" -->
+<!-- 			title="Добавить информацию о мастере или салоне на стену в социальной сети" -->
+<!-- 			ng-click="wallPostSupplier()"			  -->
+<!-- 			analytics-on -->
+<!-- 			analytics-category="share" -->
+<!-- 			analytics-event="share-supplier-wall"> -->
+<!-- 	  <span class="fa fa-share"> -->
+<!-- 	  </span> -->
+<!-- 	  На стену -->
+<!-- 	</button> -->
+<!-- </div> -->

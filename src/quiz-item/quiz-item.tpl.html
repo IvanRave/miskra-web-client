@@ -1,0 +1,26 @@
+<div data-app-toolbar>
+</div>
+
+<div class="app-content">
+  <div class="quiz-wrap">
+	<div ng-if="quizItem">
+	  <div ui-view="quizContent">
+		<!-- 	- a list of questions -->
+		<!-- 	- a question item -->
+		<!-- 	- a list of possible quiz results -->
+		<!-- 	- a quiz result -->
+	  </div>
+	</div>
+
+	<div ng-if="!quizItem && !quizErr">
+	  <div class="mrgn text-center">
+		загрузка теста...
+	  </div>
+	</div>
+
+	<div ng-if="quizErr">		
+	  <div class="err-msg" ng-bind="quizErr">
+	  </div>
+	</div>
+  </div>
+</div>

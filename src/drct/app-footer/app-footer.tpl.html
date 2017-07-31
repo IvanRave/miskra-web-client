@@ -1,0 +1,34 @@
+<footer class="app-footer">
+  <div class="pdng">
+	<a href="/about" target="_self">
+	  о проекте
+	</a>
+	<a href="/agreement" target="_self">
+	  регламент
+	</a>
+	<a href="//miskra.ru/login"
+	   target="_blank">
+	  вход для мастеров
+	</a>
+	<a href="//vk.com/miskra_club"
+	   target="_blank">
+	  группа ВК
+	</a>
+	<a href="https://vk.com/miskra_app"
+	   ng-if="is_web"
+  	   target="_blank">
+  	  приложение ВК
+	</a>
+	<a href="http://blog.miskra.ru"
+	   target="_blank">
+	  блог
+	</a>
+	<a href="//miskra.ru"
+	   target="_blank">
+	  веб-сайт
+	</a>
+  </div>
+  <div class="pdng text-center" ng-if="is_web">
+    <div app-informer></div>
+  </div>
+</footer>

@@ -1,0 +1,49 @@
+<div class="frm">
+  <div class="frm__sel"
+	   ng-if="arr_geo_agglo.length > 0">
+	<label>Город<label>
+	<select placeholder="выберите город"
+			data-ng-model="slc_data.agglo_id"
+			data-ng-change="onSelectedItemChange(slc_data.agglo_id)">
+	  <option value="">---</option>
+	  <option ng-repeat="item in arr_geo_agglo"
+	  		  value="{{item.id}}">
+	  	{{item.local_name}}
+	  </option>
+	</select>
+  </div>
+  <div data-ng-if="supplier.master_address.geo_district_id">
+	<div data-address-edt-drct
+		 data-mdr="supplier.master_address"
+		 data-mdr-geo-district-id="supplier.master_address.geo_district_id"
+		 data-mdr-description="supplier.master_address.description">
+	  <!-- do not calc regions here: it may be hidden in directive and executed only per some click: just send a calc function -->
+	  <!-- data-mdr-geo-regions="calcCityRegions(supplier.master_address.geo_district_id)" -->
+	  <!-- 		 agglo-item="slc_data.agglo_item" -->
+	</div>
+  </div>
+</div>
+
+
+<!-- <md-autocomplete -->
+<!--    md-no-cache="true" -->
+<!--    md-autofocus="false" -->
+<!--    md-autoselect="true" -->
+<!--    md-delay="0" -->
+<!--    md-selected-item="slc_data.agglo_item" -->
+<!--    md-search-text="slc_data.search_text" -->
+<!--    md-items="item in querySearch(arr_geo_agglo, slc_data.search_text)" -->
+<!--    md-item-text="item.local_name" -->
+<!--    md-min-length="0" -->
+<!--    md-selected-item-change="onSelectedItemChange(slc_data.agglo_item)" -->
+<!--    placeholder="выберите город"> -->
+<!--   <md-item-template> -->
+<!-- 	<span md-highlight-text="slc_data.search_text" -->
+<!-- 		  md-highlight-flags="^i"> -->
+<!-- 	  {{item.local_name}} -->
+<!-- 	</span> -->
+<!--   </md-item-template> -->
+<!--   <md-not-found> -->
+<!-- 	Не найдено -->
+<!--   </md-not-found> -->
+<!-- </md-autocomplete> -->

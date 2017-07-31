@@ -1,0 +1,64 @@
+.tbl-view {
+	// for scroll-watcher
+	position: relative;
+
+	.tbl-view__header {
+		margin: 8px 0;
+	}
+
+	.tbl-view__state {
+		margin: 8px 0;
+	}
+
+	.tbl-view__list {
+		margin-top: 8px;		
+	}
+
+	.tbl-view__item {
+		box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px, rgba(0, 0, 0, 0.14902) 0px 1px 10px 0px;
+		margin: 16px auto;
+		max-width: 480px;
+		border-radius: 4px;
+	}
+
+	.tbl-view__divider {
+		margin: 16px auto;
+		max-width: 480px;
+	}
+
+	.tbl-view__bottom {
+		margin: 16px auto;
+		max-width: 480px;
+		
+	}	
+
+	.tbl-view__bottom-link {
+		display: inline-block;
+		padding: 16px 12px;
+		margin: 8px 0;
+		background-color: #f4f4f4;
+		// icon
+		// span {
+		//   width: 24px;
+		//   text-align: center;
+		//   margin-right: 4px;
+		//   color: gray;
+		// }
+	}
+
+	/* .tbl-view__fit-articles { */
+	/* 	margin-top: 32px; */
+	/* 	padding: 8px; */
+	/* } */
+
+	/* .tbl-view__fit-article { */
+	/* 	padding: 16px 0; */
+	/* } */
+
+	/* .tbl-view__fit-header { */
+	/* 	font-weight: bold; */
+	/* 	font-size: 0.8rem; */
+	/* 	padding: 4px 0; */
+	/* } */
+}
+

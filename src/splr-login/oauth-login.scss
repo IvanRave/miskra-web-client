@@ -1,0 +1,43 @@
+.oauth-login {
+	max-width: 280px;
+	margin: 0 auto;
+	text-align: center;
+	
+	.header {
+		margin: 16px 0;
+	}
+
+	.provider-wrap {
+		margin: 32px 0;
+
+		button {
+			width: 100%;
+
+			span {
+				margin-right: 4px;
+			}
+		}
+
+		.button-nstg {
+			background: $color-nstg;
+			border: 1px solid $color-nstg;
+			
+			&:hover {
+				background: darken($color-nstg, 10%)
+			}
+		}
+
+		.button-vk {
+			background: $color-vk;
+			border: 1px solid $color-vk;
+
+			&:hover {
+				background: darken($color-vk, 10%)
+			}
+		}
+
+		small {
+			width: 240px;
+		}
+	}
+}

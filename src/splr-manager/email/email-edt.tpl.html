@@ -1,0 +1,21 @@
+<form class="frm"
+	  name="emailForm"
+	  ng-submit="updateEmail(supplier)">
+  <div class="frm__inp">
+	<label>Email (публичный)</label>
+	<input ng-model="supplier.main_email"/>
+  </div>
+  <div class="frm__but">
+	<button class="app-button"
+			ng-disabled="update_progress"
+			type="submit">
+	  Сохранить
+	</button>
+	<span ng-show="update_progress">
+	  сохранение...
+	</span>
+	<span ng-show="is_saved">
+	  сохранено успешно
+	</span>	
+  </div>
+</form>

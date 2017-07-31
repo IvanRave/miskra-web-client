@@ -1,0 +1,112 @@
+<div data-app-toolbar
+	 ng-if="supplier.id"
+	 data-splr-name="supplier.name"
+	 data-splr-id="supplier.id">
+</div>
+
+<div class="app-content mngr"
+	 tabindex="-1"
+	 app-scroll-watcher
+	 app-vpos="vpos">
+  <div class="mngr__wrap" ng-if="supplier">
+	<div ng-if="sessData.is_editor || is_owner">
+	  <!-- short menus more comfortable: 4-6 items -->
+	  <ul class="mngr__menu">
+		<li>
+		  <a class="mngr__menu-link"
+			 ui-sref="byt.splrManager.profile">
+			Профиль
+		  </a>
+		</li>	  
+		<li>
+		  <a class="mngr__menu-link"
+			 ui-sref="byt.splrManager.address">
+			Адрес
+		  </a>
+		</li>
+		<li>
+		  <a class="mngr__menu-link"
+			 ui-sref="byt.splrManager.social">
+			Контакты
+		  </a>
+		</li>
+		<li>
+		  <a class="mngr__menu-link"
+			 ui-sref="byt.splrManager.servList">
+			Услуги
+		  </a>
+		</li>
+
+	  </ul>
+	  
+	  <div ng-if="!supplier.master_address.geo_district_id"
+		   class="pdng text-center"
+		   style="border: 1px solid red">
+		<a ui-sref="byt.splrManager.address">Необходимо указать город</a>
+	  </div>
+	  <div class="fade mngr__content"
+		   ui-view="managerContent">
+		выберите раздел
+	  </div>
+	</div>
+	<div ng-if="!sessData.is_editor && !is_owner">
+	  <div class="mrgn pdng text-center">
+		Необходимо <a ui-sref="byt.oauthLogin">авторизоваться</a> для доступа в личный кабинет
+	  </div>
+	</div>
+  </div>
+
+  <!--   </div> -->
+  <!-- </div> -->
+  <div ng-if="err_msg">
+	<div class="err-msg" ng-bind="err_msg">
+	</div>
+	<div class="err-alt">
+	  <a ui-sref="byt.welcome">Вернуться на главную</a>
+	</div>
+  </div>
+</div>
+
+<!-- если включен автоэкспорт 
+	 - удалённые вручную работы могут быть вставлены снова
+	 - удалённые услуги - также
+	 (поэтому можно запретить удаление при включенном автоэкспорте)
+	 (либо просто предупреждать, чтобы удалили фото с такими же тэгами из Инсты)
+	 - загруженные вручную фотографии могут пересекаться с фото из последующего автоэкспорта (если в источнике находится то же фото)
+	 (предупреждать, чтобы не загружали похожие фото - заодно будет меньше дублей с Инстой)
+	 - отредактированные описания фото - не меняются при автоэкспорте
+
+
+  -->
+
+<!-- </div> -->
+	<!-- <div class="pure-u-1 pure-u-md-3-4 pure-u-sm-2-3"> -->
+	<!-- <div class="mngr__header"> -->
+	<!--   <sup class="mngr__splr-status" -->
+	<!-- 	   ng-if="supplier.is_company"> -->
+	<!-- 	салон -->
+	<!--   </sup> -->
+	<!--   <sup class="mngr__splr-status" -->
+	<!-- 	   ng-if="supplier.is_company === false"> -->
+	<!-- 	мастер -->
+	<!--   </sup> -->
+	<!-- </div> -->
+
+		  <!-- <li> -->
+	  <!-- 	<a class="mngr__menu-link" -->
+	  <!-- 	   ui-sref="byt.splrManager.phone"> -->
+	  <!-- 	  Телефон -->
+	  <!-- 	</a> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+	  <!-- 	<a class="mngr__menu-link" -->
+	  <!-- 	   ui-sref="byt.splrManager.email"> -->
+	  <!-- 	  Имэйл -->
+	  <!-- 	</a> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+	  <!-- 	<a class="mngr__menu-link" -->
+	  <!-- 	   ui-sref="byt.splrManager.removal"> -->
+	  <!-- 	  Удаление -->
+	  <!-- 	</a> -->
+	  <!-- </li> -->

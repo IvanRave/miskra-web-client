@@ -1,0 +1,43 @@
+<div class="work-item-edt">
+  <div ng-if="servWork.main_video">
+	<div ytb-video
+		 data-yid="{{servWork.main_video}}">
+	</div>
+  </div>
+  <div class="ximg"
+	   ng-if="servWork.preview_img">
+	<a ui-sref="byt.mediaItem({media_id:servWork.id})">
+	  <img class="ximg__img"
+		   ng-if="is_show"
+		   ng-src="{{servWork.preview_img}}" />
+	</a>
+  </div>
+  <!-- <div> -->
+  <!-- 	<p>{{servWork.description}}</p> -->
+  <!-- 	<button>Редактировать описание</button> -->
+  <!-- 	<input type="text" ng-model="servWork.description" /> -->
+  <!-- </div> -->
+  <div class="created">
+	{{servWork.created*1000 | date:'dd.MM.yyyy'}}
+	<!-- not necessary (more design) -->
+	<!-- add date filter -->
+  </div>
+
+  <!-- use alert instead: it is a list -->
+  <!-- <div class="err-msg" ng-if="err_obj"> -->
+  <!-- 	{{err_obj.msg}} -->
+  <!-- </div> -->
+</div>
+
+<!-- При удалении работы (фото или видео) - удаляется сперва work_rubric, и если у работы больше нет рубрик, то удаляется и работа -->
+
+<!-- описание, сохранение по Enter или потере фокуса(Ctrl+Enter не работает для мобил) -->
+
+<!-- возможен как директива или юрл /manage123456/work/4321 -->
+<!-- юрл позволяет указать ссылку прямо из /media/4321 -->
+<!-- хотя обычно будет одна (немного) работа на услугу, так что можно и ссылку на редактирование услуги: /manage123456/serv/4567. где мастер и сможет удалить, либо отредактировать и услугу и работу -->
+<!-- также можно ограничить: не более 5 работ на услугу: 
+- пользователи обычно смотрят только первую и первые несколько, 
+- и мастера возможно будут выбирать лучшие 5 
+- хотя это не товар, а красивые причёски, которые можно смотреть долго
+-->

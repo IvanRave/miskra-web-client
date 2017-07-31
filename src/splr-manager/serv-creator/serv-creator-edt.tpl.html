@@ -1,0 +1,51 @@
+<div class="serv-creator-edt">
+  <h1 class="header">Добавление услуг</h1>
+  <ul class="groups">
+	<li ng-repeat="grp in arr_serv_group">
+	  <h2 class="group-header"
+		  ng-click="is_opened=!is_opened">
+		{{ grp.name}}
+		<i class="fa fa-angle-double-down"
+		   ng-if="!is_opened"></i>
+		<i class="fa fa-angle-double-up"
+		   ng-if="is_opened"></i>
+	  </h2>
+	  <ul class="rubrics" ng-show="is_opened">
+		<li ng-repeat="rbr in grp.arr_serv_rubric | filter: isFree | orderBy:'name'">
+		  <label>
+			<input type="checkbox" ng-model="is_checked" ng-change="handleChange(is_checked, rbr.id)" />
+			<span>{{ rbr.name }}</span>
+		  </label>
+		</li>
+	  </ul>
+	</li>
+  </ul>
+  <div>
+	<button class="app-button" ng-click="addServs(arr_ids)" ng-disabled="arr_ids.length === 0 || is_progress">
+	  Добавить услуги ({{arr_ids.length}})
+	</button>  
+	<span ng-if="is_progress">
+	  добавление...
+	</span>
+  </div>
+  <div class="back-link">
+	<a ui-sref="byt.splrManager.servList({supplier_id: supplier.id})">
+	  вернуться к перечню услуг
+	</a>
+  </div>
+  <div class="err-msg" ng-if="err_insert">
+	Возникла непредвиденная ошибка. Попробуйте ещё раз.
+  </div>
+</div>
+<!-- после добавления переход к списку услуг обратно -->
+<!-- с сохранением ранее выбранного состояния списков, но тогда всё равно придется делать три клика для каждого выбора (клик по селекту, клик по рубрике, клик по Добавить --> 
+<!-- удаление рубрики только из самой рубрики, не с помощью чекбокса, так как нужно предупреждение о потере данных, фотографий и исключении из каталога -->
+<!-- обычно мастер предоставляет от 5 услуг и более - нужен мультивыбор, особенно для первого редактирования -->
+
+
+
+<!-- possible -->
+<!-- search for rubrics -->
+<!-- additional fields, like price and time  -->
+<!-- возможно пользователю будет удобней выбрать несколько рубрик сразу, чем каждый раз проходить весь процесс -->
+<!-- мультисписок -->

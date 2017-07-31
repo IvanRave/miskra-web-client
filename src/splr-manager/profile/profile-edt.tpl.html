@@ -1,0 +1,51 @@
+<form class="frm"
+	  name="profileForm"
+	  ng-submit="updateProfile(supplier)">
+  <div class="frm__rad">
+	<label>
+	  <input type="radio"
+			 name="asdf"
+			 ng-model="supplier.is_company"
+			 ng-value="false"/>
+	  Мастер
+	</label>
+	<label>
+	  <input type="radio"
+			 name="asdf"
+			 ng-model="supplier.is_company"
+			 ng-value="true"/>
+	  Салон
+	</label>
+  </div>
+  <div class="frm__inp">
+	<label>Имя/Название</label>
+	<input ng-model="supplier.name" required/>
+  </div>
+  <div class="frm__inp">
+	<label>Описание, биография</label>
+	<input ng-model="supplier.bio"/>
+  </div>
+
+  <!-- 		 ng-model="supplier.exp_entire"/> -->
+  <!--   <label>Опыт частной деятельности, месяцев</label> -->
+  <!-- 		 ng-model="supplier.exp_private"/> -->
+  <div class="frm__but">
+	<button class="app-button"
+			ng-disabled="update_progress" 
+			type="submit">
+	  Сохранить
+	</button>
+	<span ng-show="update_progress">
+	  сохранение...
+	</span>
+	<span ng-show="is_saved">
+	  сохранено успешно
+	</span>
+  </div>
+</form>
+<div ng-if="is_owner || sessData.is_moder">
+  <a ui-sref="byt.splrManager.removal"
+	 class="button-del">
+	Удаление аккаунта
+  </a>
+</div>

@@ -1,0 +1,25 @@
+<div class="agglo-slr">
+  <div class="agglo-slr__header">
+  	Выберите город
+  </div>
+  <div class="agglo-slr__auto">
+	<span class="agglo-slr__city"
+		  ng-if="agglo_calc">
+	  <a ui-sref="byt.aggloItem.specList({agglo_local_name: agglo_calc.local_name})">
+		{{agglo_calc.local_name}}
+	  </a>
+	</span>
+	<span class="agglo-slr__autodefine"
+		  ng-if="!agglo_calc && !err_calc">
+	  автоопределение...
+	</span>
+	<div class="err-msg" ng-if="err_calc">
+	  {{err_calc}}
+	</div>
+  </div>
+  <div class="agglo-slr__manual">
+	<a ui-sref="byt.aggloList">
+	  выбрать другой город
+	</a>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<!-- images not render until item.is_show=true -->
+<!-- but images may be good for seo crawlers -->
+<div class="prtf-item">
+  <!-- itemscope itemtype="http://schema.org/ImageObject" -->
+  <!-- todo: https://github.com/anselmh/object-fit -->
+  <!-- change span to image with object-fit 100% -->
+  <a class="prtf-item__img-wrap"
+	 ng-if="pw.preview_img"
+	 ng-href="{{workInfoLink}}"
+	 ng-click="saveHash(pw.id)">
+	<span class="back-img back-grey prtf-item__img"
+		  ng-style="{'background-image': 'url({{pw.preview_img}})'}"
+		  ng-if="pw.is_show">
+	</span>
+  </a>
+  <div class="prtf-item__img-wrap"
+	   ng-if="pw.main_video">
+	<div class="back-img back-grey prtf-item__img"
+		 ng-if="pw.is_show"
+		 ytb-video
+		 data-yid="{{pw.main_video}}">
+	</div>
+  </div>
+  <!-- do not show name for videos: there are controls -->
+  <div class="prtf-item__name-wrap"
+	   ng-if="pw.preview_img">
+	<a class="prtf-item__master-link"
+	   ng-href="{{masterInfoLink}}"
+	   ng-click="saveHash(pw.id)"
+	   analytics-on
+  	   analytics-category="masterinfo"
+  	   analytics-event="masterinfo-prtf">
+	  {{pw.master_profile_name}}
+	</a>
+  </div>
+  <!-- <div class="prtf-item__icon-wrap">
+  <!-- 	<a class="prtf-item__icon-link" -->
+  <!-- 	   ng-href="{{masterInfoLink}}" -->
+  <!-- 	   ng-click="saveHash(pw.id)" -->
+  <!-- 	   aria-label="информация о мастере" -->
+  <!-- 	  <span class="prtf-item__icon fa fa-info-circle fa-2x"> -->
+  <!-- 	  </span> -->
+  <!-- 	</a> -->
+  <!-- </div> -->
+</div>

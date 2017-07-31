@@ -1,0 +1,153 @@
+<div data-app-toolbar
+	 data-agglo-name="cur_agglo.local_name"
+	 data-spec-name="cur_spec.name"
+	 data-rubric-name="cur_rubric.name"
+	 data-rview-id="rview_id"
+	 data-rview-name="rview_name">
+</div>
+
+<div class="app-content tbl-view"
+	 tabindex="-1"
+	 app-scroll-watcher
+	 app-vpos="vpos">
+  <div class="full-height">
+	<div ng-if="arr_supplier"
+		 class="pdng">
+	  <div>
+		<div>
+		  <h1 class="tbl-view__header" ng-bind="page_header">			
+		  </h1>
+		  <div class="tbl-view__state">
+			<div ng-if="arr_supplier.length === 0">
+			  По данному запросу в каталоге не найдено мастеров. 
+			  <!-- <a ui-sref="byt.map({g: cur_agglo.local_name, spec: cur_spec.id})"> -->
+			  <!--   Посмотрите салоны красоты на карте города -->
+			  <!-- </a> либо -->
+			  <a ng-href="{{home_href}}">выберите другую услугу</a>.
+			  Каталог мастеров пополняется с каждым днём.
+			</div>
+			<div ng-if="arr_supplier.length > 0">
+			  Найдено:
+			  <strong ng-bind="arr_supplier.length"></strong>
+			</div>
+			<!-- <div ng-if="arr_supplier.length > 0">			   -->
+			<!-- <div class="text-center pdng"> -->
+			<!--   <a ui-sref="byt.map({g: cur_agglo.local_name, spec: cur_spec.id})"> -->
+			<!--     Салоны красоты на карте {{cur_agglo.case_genitive}} -->
+			<!--   </a> -->
+			<!-- </div> -->
+			<!-- <div class="text-center pdng"> -->
+			<!--   <a ui-sref="byt.aggloItem.specItem.rubricItem.prtfView"> -->
+			<!--     Галерея фотографий {{cur_rubric.case_gen}} -->
+			<!--   </a> -->
+			<!-- </div> -->
+			<!-- </div> -->
+		  </div>
+		</div>
+	  </div>
+	  <!-- <div class="text-center" -->
+	  <!-- 	   ng-if="sessData.is_editor"> -->
+	  <!-- 	<label> -->
+	  <!-- 	  <input type="checkbox" -->
+	  <!-- 			 ng-model="checkData.isBioHided" -->
+	  <!-- onclick="..scrollTop = 1;"/> -->
+	  <!-- 	  Скрыть заполненные -->
+	  <!-- 	</label> -->
+	  <!-- </div> -->
+	  <!-- class="pure-g" -->
+	  <!-- class="pure-u-1" -->
+	  
+	  <div  class="tbl-view__list">
+		<div itemscope
+			 itemtype="http://schema.org/BeautySalon"
+			 ng-repeat="supPart in arr_supplier"
+			 on-finish-render="supplierListRepeatFinished"
+			 id="supplier{{supPart.id}}">
+		  <!-- all styles inside a block -->
+		  <div class="tbl-view__item">
+			<div app-tbl-item
+		  		 data-sup-item="supPart"
+		  		 data-city-name="cur_agglo.local_name"
+				 data-is-editable="sessData.is_editor">
+			</div>
+			<div app-work-gallery
+				 app-sup-item="supPart"
+				 app-work-scope="supPart.work_scope"
+				 app-wrap-elem-id="supPart.id">
+			</div>
+		  </div>
+		  <div class="tbl-view__divider"
+			   ng-if="$index > 0 && $index%5 === 0 && $index < arr_supplier.length - 5">			
+			<div app-outer-links
+				 ng-if="$index%2 === 0"
+				 data-cur-agglo="cur_agglo"
+				 data-cur-spec="cur_spec"
+				 data-cur-rubric="cur_rubric">
+			</div>
+			<div app-similar-links
+				 ng-if="$index%2 !== 0"
+				 data-cur-agglo="cur_agglo"
+				 data-similar-rubrics="similar_rubrics">
+			</div>
+		  </div>		  
+		</div>
+	  </div>
+	  <div class="tbl-view__bottom">
+		<div app-similar-links
+			 data-cur-agglo="cur_agglo"
+			 data-similar-rubrics="similar_rubrics">
+		</div>
+		<div app-outer-links
+			 data-cur-agglo="cur_agglo"
+			 data-cur-spec="cur_spec"
+			 data-cur-rubric="cur_rubric">
+		</div>
+		<div app-blog-links
+			 data-rubric-articles="rubric_articles">
+		</div>
+		<div class="mrgn text-center"
+			 ng-if="cur_spec.id === 'hair'">
+		  <a ui-sref="byt.quizItem.qstnList({quiz_ttl: 'какая-прическа-мне-подойдет'})">
+			<span class="fa fa-question-circle"></span>
+			Тест: какая прическа мне подойдет
+		  </a>
+		</div>
+		<div class="text-center pdng">			
+		  <a ng-href="{{home_href}}">
+			<span class="fa fa-list"></span>
+			Вернуться к выбору услуг
+		  </a>
+		</div>
+		<!-- <div class="tbl-view__fit-articles text-center" -->
+		<!-- 	 ng-if="fit_articles.length > 0"> -->
+		<!--   <div class="tbl-view__fit-header"> -->
+		<!-- 	Статьи по теме -->
+		<!--   </div> -->
+		<!--   <ul> -->
+		<!-- 	<li data-ng-repeat="article in fit_articles" -->
+		<!-- 		class="tbl-view__fit-article"> -->
+		<!-- 	  <a data-ui-sref="byt.articleItem({article_ttl: article.ttl})"> -->
+		<!-- 		{{article.title}} -->
+		<!-- 	  </a> -->
+		<!-- 	</li> -->
+		<!--   </ul> -->
+		<!-- </div> -->
+	  </div>
+	  
+	</div>
+	<div ng-if="!arr_supplier && !err_msg">
+	  <div class="text-center pdng">
+		загрузка информации...
+	  </div>
+	</div>
+	<div ng-if="err_msg">
+	  <div class="err-msg" ng-bind="err_msg"></div>
+	</div>
+	<div data-app-footer></div>
+  </div>
+</div>
+
+<!-- todo: vertical list of work images for small screens -->
+<!-- lazy loading: load (or show) by 6 items per time 
+	 6 items * 5 photos = maximum nstg recommendation 
+	 or 7 * 4 or 10 * 3 -->

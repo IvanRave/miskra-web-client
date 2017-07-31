@@ -1,0 +1,28 @@
+.agglo-slr {	
+
+	.agglo-slr__header {
+		margin: 16px;
+		text-align: center;
+		font-size: 0.85rem;
+		font-weight: bold;
+	}
+	
+	.agglo-slr__auto {
+		text-align: center;
+		margin: 28px 0;
+
+		.agglo-slr__city {
+			font-weight: bold;
+		}
+
+		.agglo-slr__autodefine {
+			color: gray;
+		}
+	}
+
+	.agglo-slr__manual {
+		text-align: center;
+		margin: 28px 0;
+		font-size: 0.85rem;
+	}
+}

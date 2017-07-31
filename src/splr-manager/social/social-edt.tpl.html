@@ -1,0 +1,82 @@
+<div class="mngr__soc-block">
+  <div splr-phone-edt data-supplier="supplier">
+  </div>
+</div>
+
+<!-- Email block is hidden: 
+     - no emails sended from API 
+     - need email approval feature
+     - need 'send a letter to a master' feature instead email showing
+  -->
+
+<!-- <div class="mngr__soc-block"> -->
+<!--   <div splr-email-edt data-supplier="supplier"> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<!-- only for editors and moders; not for owners -->
+<div class="mngr__soc-block" ng-if="sessData.is_editor">
+  <div splr-vkid-edt data-supplier="supplier">
+  </div>
+</div>
+
+<div class="mngr__soc-block">
+  <form class="frm"
+		name="contactForm"
+		ng-submit="updateProfile(supplier)">
+	<div class="frm__inp">
+	  <label>Skype</label>
+	  <input ng-model="supplier.skype"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Twitter</label>
+	  <input ng-model="supplier.twitter"/>
+	</div>
+	<div class="frm__inp">
+	  <label>WhatsApp</label>
+	  <input ng-model="supplier.whatsapp"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Viber</label>
+	  <input ng-model="supplier.viber"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Вконтакте (группа)</label>
+	  <input ng-model="supplier.vkontakte"
+			 placeholder="https://vk.com/club123"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Одноклассники</label>
+	  <input ng-model="supplier.odnoklassniki"
+			 placeholder="http://ok.ru/club123"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Facebook</label>
+	  <input ng-model="supplier.facebook"
+			 placeholder="https://www.facebook.com/club123"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Website</label>
+	  <input ng-model="supplier.website"
+			 placeholder="https://example.com"/>
+	</div>
+	<div class="frm__inp">
+	  <label>Стационарный телефон</label>
+	  <input ng-model="supplier.landline"/>
+	</div>
+
+	<div class="frm__but">
+	  <button class="app-button"
+			  ng-disabled="update_progress"
+			  type="submit">
+		Сохранить
+	  </button>
+	  <span ng-show="update_progress">
+		сохранение...
+	  </span>
+	  <span ng-show="is_saved">
+		сохранено успешно
+	  </span>
+	</div>
+  </form>
+</div>

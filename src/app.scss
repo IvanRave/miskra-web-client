@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@import "./css/values";
+@import "./css/elems";
+@import "./css/base";
+@import "./css/frm";
+
+@import "./welcome/wlc";
+@import "./welcome/agglo-slr";
+@import "./agglo-list/agglo-list";
+@import "./agglo-item/spec-item/rubric-item/tbl-view/tbl-view";
+@import "./agglo-item/spec-item/rubric-item/prtf-view/prtf-item";
+@import "./agglo-item/spec-list/spec-list";
+@import "./agglo-item/spec-item/rubric-list/rubric-list";
+@import "./splr/main/splr-main";
+@import "./quiz-item/quiz-item";
+@import "./splr-login/splr-login";
+@import "./splr-login/oauth-login";
+@import "./drct/app-toolbar/app-toolbar";
+@import "./drct/user-status/user-status";
+@import "./drct/breadcrumb";
+@import "./drct/tbl-item/tbl-item";
+@import "./drct/work-gallery/work-gallery";
+@import "./media-item/media-item";
+@import "./splr-manager/splr-manager";
+@import "./app-map/app-map";
+@import "./drct/app-share-block/app-share-block";
+@import "./agglo-item/spec-item/rubric-item/rubric-item";

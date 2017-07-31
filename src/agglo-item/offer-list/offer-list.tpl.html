@@ -1,0 +1,44 @@
+<div ng-controller="OfferListController as ctrl"
+	 ng-if="ctrl.offer_list.length > 0">
+  <div>
+	<span>действующие скидки</span>
+  </div>
+  <div ng-repeat="ofr in ctrl.offer_list">
+	<div>
+	  <span ng-bind="ofr.percent"></span>%
+	</div>
+	<div>
+	  <div>v
+		<div ng-repeat="rbr in ofr.rubric_names">
+		  <span ng-bind="rbr"></span>
+		</div>
+	  </div>
+	</div>
+	<div class="pdng">
+	  <span ng-bind="ofr.conditions"></span>
+	  <br/>
+	  окончание акции: <span ng-bind="ofr.end_time*1000 | date : 'd MMMM'"></span>
+	</div>
+	<div class="pdng">
+	  <span ng-bind="ofr.master_address.description"></span>
+	</div>
+	<div>
+	  <button class="app-button"
+			  analytics-on
+			  analytics-category="offer"
+			  analytics-event="offer-{{$index+1}}"
+			  ui-sref="byt.splrItem.view({supplier_id:ofr.master_profile.id, name: ofr.master_profile.name})">
+		{{ofr.master_profile.name}}
+	  </button>
+	</div>
+  </div>
+  <div class="pdng">
+	<small>
+	  Вы - мастер? Оставьте свою скидку в
+	  <a target="_blank"
+		 href="//vk.com/topic-92002771_31699472">
+		группе приложения
+	  </a>
+	</small>
+  </div>
+</div>

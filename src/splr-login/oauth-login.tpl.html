@@ -1,0 +1,105 @@
+<div data-app-toolbar>
+</div>
+
+<div class="app-content">
+  <div class="oauth-login">
+	<h1 class="header" data-ng-bind="page_ttl">
+	</h1>
+	<div class="pdng">
+	  <!-- <div class="provider-wrap"> -->
+	  <!--   <button class="app-button button-nstg" -->
+	  <!--   		ng-click="openOauthNstg()" -->
+	  <!--   		analytics-on -->
+	  <!--   		analytics-category="login" -->
+	  <!--   		analytics-event="login-nstg"> -->
+	  <!--     <span class="fa fa-instagram fa-lg"></span> -->
+	  <!--     Instagram -->
+	  <!--   </button> -->
+	  <!--   <div> -->
+	  <!--     <small>необходим открытый аккаунт с фотографиями работ</small> -->
+	  <!--   </div> -->
+	  <!-- </div> -->
+	  <div class="provider-wrap">
+        <div app-login-email></div>
+	  </div>
+	  <div class="provider-wrap">
+        <div class="mrgn text-center">
+          либо войдите с помощью
+        </div>
+		<button class="app-button button-vk"
+				ng-click="openOauthVkn()"
+				analytics-on
+				analytics-category="login"
+				analytics-event="login-vkn">
+		  <span class="fa fa-vk fa-lg"></span>
+		  Вконтакте
+		</button>
+		<div>
+		  <small>необходим аккаунт мастера либо администратора салона красоты</small>
+		</div>
+	  </div>
+	</div>
+	<!-- <p> -->
+	<!--   Плюсы -->
+	<!--   <ul> -->
+	<!-- 	<li>Отображение в каталогах услуг</li> -->
+	<!-- 	<li></li> -->
+	<!-- 	<li></li> -->
+	<!--   </ul> -->
+	<!-- </p> -->
+	<div class="pdng text-center">
+	  <!-- need for users, who redirected from Ads -->
+	  <a ui-sref="byt.welcome">на главную</a>
+	</div>
+  </div>
+  <div data-app-footer></div>
+</div>
+
+<!-- <div style="margin-top: 30px; font-weight: bold"> -->
+<!--   Шаг 2. Заполнение данных -->
+<!-- </div> -->
+<!-- <p> -->
+<!--   После регистрации вам будет доступен личный кабинет мастера. После заполнения основных данных (город, контакты и т.п.) анкета мастера/салона проверяется модератором и публикуется в каталогах. -->
+<!-- </p> -->
+<!-- <div style="margin-top: 30px; font-weight: bold"> -->
+<!--   Шаг 3. Экспорт работ и услуг -->
+<!-- </div> -->
+<!-- <p> -->
+<!--   Фотографии работ автоматически подгружаются из вашего профиля Instagram. Наименования услуг определяются по тэгам к фотографиям. Размещение в каталогах - бесплатно. -->
+<!-- </p> -->
+
+<!-- <div ng-if="!reg_free_sended"> -->
+<!-- 		<p class="text-center"> -->
+<!-- 		  или -->
+<!-- 		</p> -->
+<!-- 		<\!-- <p> -\-> -->
+<!-- 		<\!-- 	Оставьте ссылку на сайт или публичную страницу мастера: -\-> -->
+<!-- 		<\!-- </p> -\-> -->
+<!-- 		<form name="regFreeForm" -->
+<!-- 			  ng-submit="sendRegFree(reg_free)"> -->
+<!-- 		  <div class="text-center"> -->
+<!-- 			<label> -->
+<!-- 			  <input type="text" style="width: 100%; padding: 6px;" -->
+<!-- 					 placeholder="сайт или страница в соцсети" -->
+<!-- 					 required -->
+<!-- 					 name="link" -->
+<!-- 					 maxlength="320" -->
+<!-- 					 minlength="3" -->
+<!-- 					 ng-model="reg_free.link"/> -->
+<!-- 			</label> -->
+<!-- 		  </div> -->
+<!-- 		  <div class="text-center pdng"> -->
+<!-- 			<button class="app-button" -->
+<!-- 					type="submit" -->
+<!-- 					ng-disabled="regFreeForm.$invalid"> -->
+<!-- 			  Отправить ссылку на мастера -->
+<!-- 			</button> -->
+<!-- 		  </div> -->
+<!-- 		  <\!-- </div> -\-> -->
+<!-- 		</form> -->
+<!-- 		<div class="text-center"> -->
+<!-- 		  <small> -->
+<!-- 			по возможности информация будет добавлена в каталоги сервиса -->
+<!-- 		  </small> -->
+<!-- 		</div> -->
+<!-- 	  </div> -->

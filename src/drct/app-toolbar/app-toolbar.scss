@@ -1,0 +1,59 @@
+.app-toolbar {
+
+	$icon-width: 48px;
+	$face-color: #fff;
+	// #fff
+	$back-color: #555;
+	// $app-color;
+	$shadow-color: lighten($back-color, 10%);
+
+	//align-items: center;
+	height: $toolbar-height;
+	max-height: $toolbar-height;
+	padding: 0;
+	margin: 0;
+	background-color: $back-color;
+	border-bottom: 1px solid $shadow-color;
+	//box-shadow: 0 1px 3px 0 $shadow-color,0 1px 1px 0 $shadow-color,0 2px 1px -1px $shadow-color;
+	@extend .clearfix;
+
+	.app-toolbar__bread {
+		margin-right: 2 * $icon-width;
+		// hide scrollbar for desktop browsers
+		// leave for mobile (which inside a container)
+		height: 48px;
+		overflow: hidden;
+		/* box-shadow: 2px 0 0 0 darken($back-color, 10%); */
+	}
+
+	.app-toolbar__bread-wrap {
+		// show only for mobile - thin raw
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+	}
+
+	.app-toolbar__search {
+		float: right;
+
+		a {			
+			display: inline-block;
+			width: $icon-width;
+			text-align: center;
+			padding: 8px 0 0;
+
+			i {
+				color: $face-color;
+				font-size: 1.8rem;
+			}
+		}
+	}
+
+	.app-toolbar__user {
+		color: $face-color;
+		width: $icon-width;
+		float: right;
+		text-align:center;
+	}
+
+}

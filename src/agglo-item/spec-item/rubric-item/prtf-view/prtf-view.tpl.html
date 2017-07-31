@@ -1,0 +1,119 @@
+<div data-app-toolbar
+	 data-agglo-name="cur_agglo.local_name"
+	 data-spec-name="cur_spec.name"
+	 data-rubric-name="cur_rubric.name"
+	 data-rview-id="rview_id"
+	 data-rview-name="rview_name">
+</div>
+
+<div class="app-content"
+	 tabindex="-1"
+	 app-scroll-watcher
+	 app-vpos="vpos">
+  <div ng-if="arr_prtf_work">
+	<div>
+	  <div>
+		<h1 class="page-header" data-ng-bind="page_header">
+		</h1>	
+		<div class="mrgn">
+		  <div ng-if="arr_prtf_work.length === 0">
+			По данному запросу не найдены фотографии работ.
+		  </div>
+		  <div ng-if="arr_prtf_work.length > 0">
+			найдено: 
+			<strong ng-bind="arr_prtf_work.length">
+			</strong>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div ng-if="arr_prtf_work.length > 0">	  
+	  <ul class="pure-g">
+		<li class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4"
+			ng-repeat="pw in arr_prtf_work"
+			on-finish-render="servListRepeatFinished"
+			id="work{{pw.id}}">
+		  <div class="prtf-view-block"
+		  	   prtf-item-drct
+		  	   data-pw="pw"
+		  	   data-rubric-name="cur_rubric.name">
+		  </div>
+		  <!-- data-index="{{$index}}" -->
+		</li>
+	  </ul>
+	  <div class="mrgn">
+		<div class="text-center pdng">
+		<!--   <a ui-sref="byt.map({g: cur_agglo.local_name, spec: cur_spec.id})"> -->
+		<!-- 	Салоны красоты на карте {{cur_agglo.case_genitive}} -->
+		<!--   </a> -->
+		<!-- </div> -->
+		<div class="text-center pdng">
+		  <a ui-sref="byt.aggloItem.specItem.rubricItem.tblView">
+			Каталог мастеров
+			<span ng-if="cur_rubric.case_dat">
+			  по 
+			  {{cur_rubric.case_dat}}
+			</span>
+		  </a>
+		</div>
+	  </div>
+	</div>
+	<div class="prtf-view__bottom">
+	  <div app-similar-links
+		   data-cur-agglo="cur_agglo"
+		   data-similar-rubrics="similar_rubrics">
+	  </div>
+	  <div app-outer-links
+		   data-cur-agglo="cur_agglo"
+		   data-cur-spec="cur_spec"
+		   data-cur-rubric="cur_rubric">
+	  </div>
+	  <div app-blog-links
+		   data-rubric-articles="rubric_articles">
+	  </div>
+	  <div class="pdng">
+		<a ui-sref="byt.quizItem.qstnList({quiz_ttl: 'какая-прическа-мне-подойдет'})">
+		  <span class="fa fa-question-circle">
+		  </span>
+		  Тест: какая прическа мне подойдет
+		</a>
+	  </div>
+	  <div class="pdng">
+		<a ng-href="{{home_href}}">
+		  <span class="fa fa-list"></span>
+		  Вернуться к выбору услуг
+		  <!-- <span class="fa fa-home"> -->
+		  <!-- </span> -->
+		</a>
+	  </div>
+	</div>
+  </div>
+
+  <div ng-if="!arr_prtf_work && !err_arr_prtf_work">
+	<div class="pdng text-center">
+	  загрузка фото...
+	</div>
+  </div>
+  
+  <div ng-if="err_arr_prtf_work">
+	<div class="pdng">
+	  <span ng-bind="err_arr_prtf_work.msg">
+	  </span>
+	</div>
+  </div>
+  <div data-app-footer></div>
+</div>
+
+<!-- <md-grid-list md-cols-sm="1" -->
+<!-- 				md-cols-md="2" -->
+<!-- 				md-cols-lg="3" -->
+<!-- 				md-cols-gt-lg="4" -->
+<!-- 				md-row-height="1:1" -->
+<!-- 				md-gutter="2px"> -->
+<!-- 	<md-grid-tile -->
+<!-- 	   ng-repeat="pw in arr_prtf_work" -->
+<!-- 	   on-finish-render="servListRepeatFinished" -->
+<!-- 	   id="work{{pw.id}}"> -->
+<!-- 	</md-grid-tile> -->
+<!-- </md-grid-list> -->

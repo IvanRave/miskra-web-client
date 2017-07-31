@@ -1,0 +1,25 @@
+<!-- mdw view -->
+<!-- spec item contains rubric list (no separated view) -->
+<div class="full-height"
+	 data-ng-if="cur_spec"
+	 data-ui-view="specItemContent">
+</div>
+
+<div ng-if="is_prg">
+  <div ng-if="!err_cur_spec && !cur_spec">
+	<div class="text-center pdng">
+	  загрузка специализации...
+	</div>
+  </div>
+</div>
+
+<div ng-if="err_cur_spec">
+  <div class="err-msg"
+	   ng-bind="err_cur_spec.msg">
+  </div>
+  <div class="err-alt">
+	<a ng-href="{{home_href}}">
+	  Перейти к выбору услуг в городе {{cur_agglo.local_name}}
+	</a>
+  </div>
+</div>

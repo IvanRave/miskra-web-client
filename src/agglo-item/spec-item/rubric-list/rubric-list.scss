@@ -1,0 +1,61 @@
+.rubric-list {
+	position: relative;
+	padding: 0 8px;
+	$back-color: #fefefe;
+	//#dcdcdc;
+	$wrap-border-color: #efefef;
+
+	.rubric-list__header {
+		margin: 16px 0;
+	}
+
+	.rubric-list__list {
+		margin: 16px 0;	 
+	}
+
+	.rubric-list__item-wrap {
+		margin: 2px;
+		padding: 0;
+		text-align: center;
+		/* text-align: right; */
+		background-color: $wrap-border-color;
+		position: relative;
+	}
+
+	.rubric-list__item-link {
+		display: inline-block;
+		width: 100%;
+		height: 70px;
+		padding: 16px;
+		/* color: #fff; */
+		/* text-decoration: none; */
+
+		background-color: #fff;
+		transition: background .1s ease,color .1s ease;
+		border-radius: 0 0 70px 0;
+		border: 3px solid $wrap-border-color;
+		
+		&:hover {
+			background-color: #fafafa;
+		}
+	}
+
+	.rubric-list__item-counter {
+		position: absolute;
+		right: 2px;
+		bottom: 4px;
+		width: 24px;
+		text-align: center;
+		font-size: 0.8rem;
+		color: #999;
+	}
+
+	/* .rubric-list__item-link:hover { */
+	/* 	background-color: darken($back-color, 10%); */
+	/* } */
+
+	.rubric-list__order {
+		text-align: center;
+		margin: 32px 0;
+	}
+}

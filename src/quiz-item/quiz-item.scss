@@ -1,0 +1,82 @@
+.qstn-list {
+	.qstn-list__item-wrap {
+		list-style-type: normal;
+		position: relative;
+
+		.qstn-list__item-checked {
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 10px;
+			
+			i {
+				font-size: 2rem;
+			}
+		}
+
+		.qstn-list__item-link {
+			display: block;
+			border: 1px solid #fff;
+			padding: 16px;
+			background-color: #999;
+			text-decoration: none;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.qstn-list__item-link:hover {
+			color: #fff;
+			background-color: #777;
+		}
+	}
+}
+
+.qstn-ttl {
+	text-align: center;
+}
+
+.qstn-num {
+	
+}
+
+.qstn-num__item-wrap {
+	display: inline-block;
+	padding: 0 8px;
+}
+
+.qstn-num__slc {
+	font-weight: bold;
+}
+
+.qres-item {
+	border: 1px solid #fff;  
+	padding: 4px 0;
+	list-style-type: circle;
+	margin-left: 28px;
+}
+
+.qres-dscr {
+	font-size: 0.8rem;
+	color: #777;
+}
+
+.qres-rubric {
+	font-weight: bold;
+}
+
+.quiz-wrap {
+	max-width: $wrap-max-width;
+	margin: 0 auto;
+}
+
+.quiz__qres-item {
+	min-height: 40px;
+
+	img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+	}
+}

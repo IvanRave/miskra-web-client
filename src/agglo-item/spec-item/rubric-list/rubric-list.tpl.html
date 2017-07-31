@@ -1,0 +1,71 @@
+<div data-app-toolbar
+	 data-agglo-name="agglo.local_name"
+	 data-spec-name="spec.name">
+</div>
+
+<div class="app-content rubric-list">
+  <h1 class="rubric-list__header">
+	{{spec.name}} в {{agglo.case_prepositional}}
+  </h1>
+  <!-- <div class="pure-g"> -->
+  <!-- 	<div class="pure-u pure-u-md-1-4"></div> -->
+  <!-- 	<div class="pure-u-1 pure-u-md-1-2">	   -->
+  <div ng-if="allRubrics">
+	<ul class="rubric-list__list pure-g"
+		ng-if="rubrics.length > 0">
+	  <li class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4"
+		  ng-repeat="item in rubrics">
+		<!--  | orderBy: '-count_master_serv' -->
+		<div class="rubric-list__item-wrap">
+		  <a class="rubric-list__item-link"
+			 ng-href="{{calcHref(item.name, 'tblView')}}">
+			{{item.name}}
+		  </a>
+		  <div class="rubric-list__item-counter">
+			{{item.count_master_serv}}
+		  </div>
+		</div>
+	  </li>
+	</ul>
+	<div class="err-msg"
+		 ng-if="rubrics.length === 0">
+	  Не найдено услуг в городе {{agglo.local_name}} по специальности {{spec.name}}
+	</div>
+	<!-- <div class="rubric-list__order"> -->
+	<!--   <a ng-href="{{map_href}}"> -->
+	<!-- 	<span class="fa fa-map"></span> -->
+	<!-- 	Салоны красоты на карте {{agglo.case_genitive}} -->
+	<!--   </a> -->
+	<!-- </div> -->
+	<div class="mrgn text-center"
+		 ng-if="spec.id === 'hair'">
+	  <a ui-sref="byt.quizItem.qstnList({quiz_ttl: 'какая-прическа-мне-подойдет'})">
+		<span class="fa fa-question-circle"></span>
+		Тест: какая прическа мне подойдет
+	  </a>
+	</div>
+  </div>
+
+  <div ng-if="is_prg">
+	<div ng-if="!allRubrics && !err_rubrics">
+	  <div class="text-center">
+		<div class="xprogress">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <div ng-if="err_rubrics">
+	<div class="err-msg" ng-bind="err_rubrics.msg">
+	</div>
+  </div>
+  <div data-app-footer></div>
+</div>

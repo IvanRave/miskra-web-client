@@ -1,0 +1,77 @@
+<form class="frm"
+	  name="addressForm">
+  <div class="frm__inp">
+	<label>Адрес мастера / салона</label>
+	<input ng-model="ggg.supStreet"
+		   placeholder="ул. Такая-то, 123"/>
+  </div>
+  <div class="frm__inp">
+	<label>Комментарий (как найти, пройти)</label>
+	<input ng-model="ggg.supComment"
+		   placeholder="3 подъезд, 2 этаж"/>
+  </div>
+  <div class="frm__inp">
+	<label>Условия работы на выезде</label>
+	<input ng-model="ggg.cusConds"/>
+  </div>
+  <div class="frm__but">
+	<button class="app-button"
+			ng-click="updateAddress(mdr, ggg)">
+	  Сохранить
+	</button>
+	<span ng-show="update_progress">
+	  сохранение...
+	</span>
+	<span ng-show="is_saved">
+	  сохранено успешно
+	</span>	
+  </div>
+</form>
+
+
+
+<!--   <label>Координаты, например POINT(lng, lat)</label> -->
+<!--   <input ng-model="mdr.coords" /> -->
+
+<!-- <div class="frm__che"> -->
+<!-- 	<div class="frm__che-header"> -->
+<!-- 	  Работа на выезде (на дом к заказчику) -->
+<!-- 	</div> -->
+<!-- <div ng-repeat="rgn in calcRegList(mdrGeoDistrictId)"> -->
+<!--   <label> -->
+<!-- 	<input type="checkbox" -->
+<!-- 		   ng-model="rgn.is_selected" -->
+<!-- 		   aria-label="{{rgn.name}}"/> -->
+<!-- 	{{rgn.name}} -->
+<!--   </label> -->
+<!-- </div> -->
+<!-- 	<button ng-click="selectAll(geoRegionList)"> -->
+<!-- 	  Выбрать все районы -->
+<!-- 	</button> -->
+<!-- 	<button ng-click="unselectAll(geoRegionList)"> -->
+<!-- 	  Убрать все районы -->
+<!-- 	</button> -->
+<!-- </div> -->
+
+<!-- <div class="frm__sel"> -->
+<!-- <label> -->
+<!--   Район / метро -->
+<!-- </label> -->
+<!-- <select placeholder="район мастера" -->
+<!-- 		ng-model="ggg.supRegion"> -->
+<!--   <option ng-repeat="rgn in calcRegions(mdrGeoRegions, ggg.cusRegions)" -->
+<!-- 		  value="{{rgn.name}}"> -->
+<!-- 	{{rgn.name}} -->
+<!--   </option> -->
+<!-- </select> -->
+<!-- <button  -->
+<!--   		 -->
+<!--   		style="margin: 14px 0 0 0"> -->
+<!-- <button ng-if="ggg.supRegion" -->
+<!-- 		ng-click="clearSupRegion(ggg)"> -->
+<!--   <span class="fa fa-close"></span> -->
+<!--   очистить -->
+<!-- </button> -->
+
+<!-- </button> -->
+<!-- </div> -->

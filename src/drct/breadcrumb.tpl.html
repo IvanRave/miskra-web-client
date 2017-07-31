@@ -1,0 +1,77 @@
+<!-- todo: breadcrumb__act breadcrumb__noact -->
+<nav>
+  <ol class="breadcrumb"
+	  itemscope
+	  itemtype="http://schema.org/BreadcrumbList">
+	<li class="breadcrumb__item-wrap"
+		itemprop="itemListElement"
+		itemscope
+		itemtype="http://schema.org/ListItem">
+	  <a class="breadcrumb__item breadcrumb__item-first breadcrumb__act"
+		 data-ng-href="{{hrefHome}}"
+		 itemprop="item">
+		<!-- <img src="./favicon-16x16.png" /> -->
+		<span class="fa fa-home breadcrumb__icon"
+			  itemprop="name" content="МисКра">
+		</span>
+	  </a>
+	  <meta itemprop="position" content="1" />
+	</li>
+	<li class="breadcrumb__item-wrap"
+		ng-if="aggloName"
+		itemprop="itemListElement"
+		itemscope
+		itemtype="http://schema.org/ListItem">
+	  <a class="breadcrumb__item"
+		 data-ng-href="{{calcHrefAgglo(aggloName)}}"
+		 itemprop="item">
+		<span ng-bind="aggloName"
+			  itemprop="name">
+		</span>
+	  </a>
+	  <meta itemprop="position" content="2" />
+	</li>
+	<li class="breadcrumb__item-wrap"
+		ng-if="splrName"
+		itemprop="itemListElement"
+		itemscope
+		itemtype="http://schema.org/ListItem">
+	  <a class="breadcrumb__item"
+		 data-ng-href="{{calcHrefSplr(splrId, splrName)}}"
+		 itemprop="item">
+		<span ng-bind="splrName"
+			  itemprop="name">
+		</span>
+	  </a>
+	  <meta itemprop="position" content="3" />
+	</li>
+	<li class="breadcrumb__item-wrap"
+		ng-if="specName"
+		itemprop="itemListElement"
+		itemscope
+		itemtype="http://schema.org/ListItem">
+	  <a class="breadcrumb__item"
+		 data-ng-href="{{calcHrefSpec(aggloName, specName)}}"
+		 itemprop="item">
+		<span ng-bind="specName"
+			  itemprop="name">
+		</span>
+	  </a>
+	  <meta itemprop="position" content="3" />
+	</li>
+	<li class="breadcrumb__item-wrap"
+		ng-if="rubricName"
+		itemprop="itemListElement"
+		itemscope
+		itemtype="http://schema.org/ListItem">
+	  <a class="breadcrumb__item"
+		 data-ng-href="{{calcHrefRubric(aggloName, specName, rubricName, rviewId)}}"
+		 itemprop="item">
+		<span itemprop="name">
+		  {{rubricName}}: {{rviewName}}
+		</span>
+	  </a>
+	  <meta itemprop="position" content="4" />
+	</li>
+  </ol>
+</nav>

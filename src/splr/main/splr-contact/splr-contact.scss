@@ -1,0 +1,36 @@
+.ctct__icon-wrap {
+	float: left;
+
+	@include media-sm {
+		display: none;
+	}
+}
+
+.ctct__text-wrap {
+	padding: 0;
+	margin-left: 46px;
+
+	@include media-sm {
+		margin-left: 0;
+	}
+}
+
+.ctct__show-link {
+	color: rgb(68,138,255);
+	font-size: 0.9rem;
+}
+
+.ctct__icon-wrap span {
+	color: rgba(0,0,0,0.54);
+	font-size: 2rem;
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	padding: 4px 0;
+	text-align: center;
+}
+
+.ctct__text-sub {
+	color: gray;
+	font-size: 0.9rem;
+}
